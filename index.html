@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borah Service - Kaziranga Tourist & Jepsy Safari Service</title>
+    <title>Borah Service - Kaziranga Tourist & Safari</title>
     <style>
         :root {
             --primary-green: #1b4d3e;
@@ -18,7 +18,7 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
         }
-        /* Top Bar */
+        /* Top Navigation */
         nav {
             background-color: var(--primary-green);
             color: white;
@@ -33,301 +33,268 @@
         }
         nav h2 {
             margin: 0;
-            font-size: 20px;
-            letter-spacing: 0.5px;
+            font-size: 18px;
         }
-        .container {
-            max-width: 900px;
+        
+        /* Layout Container */
+        .main-container {
+            max-width: 1100px;
             margin: 20px auto;
             padding: 0 15px;
         }
-        /* Panel Base Style */
-        .panel {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            padding: 25px;
-            margin-bottom: 25px;
-            border: 1px solid #e0e0e0;
-        }
-        .panel h2 {
-            color: var(--primary-green);
-            border-bottom: 2px solid var(--accent-gold);
-            padding-bottom: 8px;
-            margin-top: 0;
-        }
 
-        /* PANEL 1: Owner Intro */
+        /* 1st Panel: Owner Intro */
         .hero-panel {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             border-radius: 12px;
-            padding: 40px 20px;
+            padding: 35px 20px;
+            margin-bottom: 20px;
         }
         .owner-avatar {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 4px solid var(--accent-gold);
+            border: 3px solid var(--accent-gold);
             object-fit: cover;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             background: #fff;
         }
         .hero-panel h1 {
-            margin: 10px 0 5px 0;
-            font-size: 28px;
-        }
-        .hero-panel p {
-            font-size: 16px;
-            color: #f1f1f1;
-            margin: 5px 0 15px 0;
+            margin: 5px 0;
+            font-size: 24px;
         }
         .whatsapp-btn {
             background: #25d366;
             color: white;
-            padding: 10px 22px;
+            padding: 8px 18px;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
             display: inline-block;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+            margin-top: 10px;
+            font-size: 14px;
         }
 
-        /* PANEL 2: Kaziranga Scenic & Places */
-        .scenic-banner {
-            width: 100%;
-            height: 180px;
-            border-radius: 8px;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-        .place-grid {
+        /* Two-Sided Grid Layout */
+        .two-side-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
-        .place-card {
-            background: #eaf2ed;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-green);
-        }
-        .place-card h4 {
-            margin: 0 0 5px 0;
-            color: var(--primary-green);
+        @media (max-width: 768px) {
+            .two-side-layout {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* PANEL 3: Tools & Management */
-        .tool-box {
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            padding: 15px;
+        .panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        .panel h3 {
+            color: var(--primary-green);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 6px;
+            margin-top: 0;
+            font-size: 16px;
+        }
+
+        /* Tools Bar Style */
+        .tools-bar {
+            background: #eaf2ed;
+            padding: 12px;
             border-radius: 8px;
             margin-bottom: 15px;
+            border: 1px dashed var(--primary-green);
         }
-        .tool-box h4 {
-            margin-top: 0;
-            color: #333;
+        .tools-bar label {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 5px;
         }
-        input[type="text"] {
+        select, input, textarea {
             width: 100%;
-            padding: 10px;
+            padding: 9px;
             border: 1px solid #ccc;
             border-radius: 6px;
             box-sizing: border-box;
             margin-bottom: 10px;
+            font-size: 13px;
+        }
+        .tool-btn-group {
+            display: flex;
+            gap: 8px;
         }
         .btn {
             background: var(--primary-green);
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            width: 100%;
+            font-size: 13px;
+            flex: 1;
         }
-        .btn:hover {
-            background: #14382c;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th, td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
-            font-size: 14px;
-        }
-        th {
-            background: #eaf2ed;
-        }
+        .btn-reel { background: #e1306c; }
+        .btn-gallery { background: #0095f6; }
+
+        /* Feed Posts */
         .feed-post {
-            background: white;
+            background: #fafafa;
             border: 1px solid #ddd;
             padding: 12px;
-            border-radius: 6px;
-            margin-top: 10px;
+            border-radius: 8px;
+            margin-top: 12px;
         }
-        .security-note {
-            background: #fff8e1;
-            border-left: 4px solid #ffc107;
-            padding: 12px;
-            border-radius: 4px;
+        .media-container {
+            background: #000;
+            color: #fff;
+            height: 140px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 13px;
-            margin-top: 20px;
+            margin-top: 8px;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        /* Scenery Cards */
+        .scenic-card {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--primary-green);
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <h2>🌿 Borah Service (Kaziranga Tourist)</h2>
-        <span>👑 Admin: Somnath Borah</span>
+        <h2>🌿 Borah Service</h2>
+        <span style="font-weight: bold; color: #ffd700;">Somnath Borah</span>
     </nav>
 
-    <div class="container">
+    <div class="main-container">
 
-        <!-- ================= PANEL 1: Owner Intro Panel ================= -->
-        <div class="panel hero-panel">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Somnath Borah" class="owner-avatar">
+        <!-- ================= 1st PANEL: Owner Intro ================= -->
+        <div class="hero-panel">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Somnath Borah" class="owner-avatar">
             <h1>SOMNATH BORAH</h1>
-            <p>Official Owner & Lead Expert Guide • Kaziranga Tourist & Jepsy Safari Service</p>
-            <p style="font-size: 14px; color: #ffd700;">📞 Direct Contact: +91 9101311494</p>
-            <div style="margin-top: 15px;">
-                <a href="https://wa.me/919101311494?text=Hello%20Somnath%20Borah,%20I%20want%20to%20know%20more%20about%20safari%20packages." class="whatsapp-btn" target="_blank">💬 Connect on WhatsApp</a>
+            <p style="font-size: 14px; margin: 5px 0;">Official Owner & Lead Expert Guide • Kaziranga Safari Service</p>
+            <p style="font-size: 13px; color: #ffd700; margin: 0;">📞 Direct Contact: +91 9101311494</p>
+            <div>
+                <a href="https://wa.me/919101311494?text=Hello%20Somnath%20Borah,%20I%20want%20to%20book%20safari." class="whatsapp-btn" target="_blank">💬 Connect on WhatsApp</a>
             </div>
         </div>
 
-        <!-- ================= PANEL 2: Kaziranga Scenery & Tourist Places ================= -->
-        <div class="panel">
-            <h2>🌲 Kaziranga Scenery & Tourist Ranges</h2>
-            <img src="https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=900&q=80" alt="Kaziranga National Park Scenery" class="scenic-banner">
-            <p>Immerse yourself in the breathtaking landscapes, lush wet grasslands, and dense tropical forests of Kaziranga National Park — home to the world's largest population of the Great Indian One-Horned Rhinoceros.</p>
-            
-            <div class="place-grid">
-                <div class="place-card">
-                    <h4>Central Range (Kohora)</h4>
-                    <p>High density of rhinos, elephants, and grassland panoramas. Main hub for jeep safaris.</p>
-                </div>
-                <div class="place-card">
-                    <h4>Western Range (Bagori)</h4>
-                    <p>Wetlands and water bodies offering majestic sightings of rhinos and wild water buffaloes.</p>
-                </div>
-                <div class="place-card">
-                    <h4>Eastern Range (Agoratoli)</h4>
-                    <p>A paradise for bird watchers, swamp deer, and peaceful deep-forest trails.</p>
-                </div>
-                <div class="place-card">
-                    <h4>Burapahar Range</h4>
-                    <p>Hilly terrains, dense canopies, and scenic views along the Brahmaputra river.</p>
-                </div>
-            </div>
-        </div>
+        <!-- ================= TWO SIDE LAYOUT FOR TOOLS & PAGES ================= -->
+        <div class="two-side-layout">
 
-        <!-- ================= PANEL 3: Tools & Management Panel ================= -->
-        <div class="panel">
-            <h2>🛠️ Administration & Management Tools</h2>
-            
-            <!-- Tool 1: Safari Schedule Manager -->
-            <div class="tool-box">
-                <h4>1. Safari Date & Time Slot Manager</h4>
-                <p style="font-size: 13px; color: #666;">Owner can view and manage active safari timing slots:</p>
-                <table>
-                    <tr>
-                        <th>Safari Shift</th>
-                        <th>Timing Slot</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <td>Morning Jeep Safari</td>
-                        <td>07:30 AM – 09:30 AM</td>
-                        <td><span style="color: green; font-weight: bold;">Active ✅</span></td>
-                    </tr>
-                    <tr>
-                        <td>Evening Jeep Safari</td>
-                        <td>01:30 PM – 03:30 PM</td>
-                        <td><span style="color: green; font-weight: bold;">Active ✅</span></td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- Tool 2: Employee / Guide Adder -->
-            <div class="tool-box">
-                <h4>2. Employee & Guide Management Tool</h4>
-                <p style="font-size: 13px; color: #666;">Add trusted staff or local jeep drivers to the team directory:</p>
-                <input type="text" id="empInput" placeholder="Enter Guide / Employee Name...">
-                <button class="btn" onclick="addStaff()">Add Employee</button>
-                <ul id="staffList" style="margin-top: 10px; padding-left: 20px; font-size: 14px;">
-                    <li>Rajib Borah (Senior Safari Guide)</li>
-                    <li>Bikash Das (Vehicle Coordinator)</li>
-                </ul>
-            </div>
-
-            <!-- Tool 3: Facebook-Style Reels, Photos & Posts Publisher -->
-            <div class="tool-box">
-                <h4>3. Social Feed / Reels & Photo Publisher</h4>
-                <p style="font-size: 13px; color: #666;">Post updates, tourist highlights, and safari video reels directly:</p>
-                <input type="text" id="postText" placeholder="Write caption about today's safari adventure...">
-                <input type="text" id="postMedia" placeholder="Paste Photo or Reel link URL...">
-                <button class="btn" style="background-color: #1877f2;" onclick="publishFeed()">Publish to Live Feed</button>
+            <!-- LEFT SIDE: Tools Bar & Upload Panel (Strictly for Owner/Employee) -->
+            <div class="panel">
+                <h3>🛠️ Authorized Tools & Media Publisher</h3>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Only verified Owner or Employees can post content here:</p>
                 
-                <div id="feedStream" style="margin-top: 15px;">
+                <div class="tools-bar">
+                    <label>Select Your Identity (Role Verification):</label>
+                    <select id="publisherRole">
+                        <option value="Somnath Borah (Owner)">Somnath Borah (Owner)</option>
+                        <option value="Rajib Borah (Employee/Guide)">Rajib Borah (Employee/Guide)</option>
+                        <option value="Bikash Das (Employee/Driver)">Bikash Das (Employee/Driver)</option>
+                    </select>
+
+                    <label>Post Caption / Details:</label>
+                    <textarea id="postDesc" rows="2" placeholder="Write caption about safari or wildlife..."></textarea>
+
+                    <label>Upload Media File / Gallery Link:</label>
+                    <input type="text" id="mediaUrl" placeholder="Paste image/video link or select from gallery...">
+
+                    <div class="tool-btn-group">
+                        <button class="btn btn-reel" onclick="createContent('Reel')">🎬 Create Reel</button>
+                        <button class="btn btn-gallery" onclick="createContent('Gallery')">🖼️ Add Photo/Video</button>
+                    </div>
+                </div>
+
+                <h3>🌲 Kaziranga Scenery Highlights</h3>
+                <div class="scenic-card">
+                    <strong>Central Range (Kohora):</strong> Famous for high density of One-Horned Rhinos and grassland views.
+                </div>
+                <div class="scenic-card">
+                    <strong>Western Range (Bagori):</strong> Great water bodies and wetland landscapes.
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE: 2 Side Pages / Live Feed Stream -->
+            <div class="panel">
+                <h3>📱 Live Gallery & Reels Feed Page</h3>
+                <p style="font-size: 12px; color: #666;">View real-time updates published by the owner and employees:</p>
+                
+                <div id="feedContainer">
+                    <!-- Default Post -->
                     <div class="feed-post">
-                        <strong>Somnath Borah (Admin)</strong> <span style="font-size: 12px; color: #777;">• Today</span>
-                        <p style="margin: 5px 0;">Welcome tourists! Morning safari spotted great rhinos at Kohora range. Book your slots now!</p>
-                        <div style="background: #e4e6eb; height: 120px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #555; font-size: 13px;">📸 Kaziranga Wildlife Media Reel</div>
+                        <div style="font-size: 13px; font-weight: bold; color: var(--primary-green);">
+                            Somnath Borah (Owner) <span style="font-size: 11px; color: #777; font-weight: normal;">• Kohora Range</span>
+                        </div>
+                        <p style="font-size: 13px; margin: 6px 0;">Stunning morning wildlife view at Kaziranga! Book your Jeep Safari slots now.</p>
+                        <div class="media-container" style="background: linear-gradient(45deg, #1b4d3e, #222);">
+                            ✨ Kaziranga Safari Special Reel & Gallery View
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- Security Notice -->
-        <div class="security-note">
-            <p style="margin: 0;"><strong>System Security Notice:</strong> Managed exclusively by <strong>SOMNATH BORAH</strong> (+91 9101311494). Any modification to admin credentials requires user contact OTP verification.</p>
-        </div>
-
     </div>
 
     <script>
-        function addStaff() {
-            let name = document.getElementById('empInput').value;
-            if(!name) {
-                alert('Please enter employee name.');
-                return;
-            }
-            let list = document.getElementById('staffList');
-            let li = document.createElement('li');
-            li.innerText = name + ' (Staff/Guide)';
-            list.appendChild(li);
-            document.getElementById('empInput').value = '';
-        }
+        function createContent(type) {
+            let role = document.getElementById('publisherRole').value;
+            let desc = document.getElementById('postDesc').value;
+            let url = document.getElementById('mediaUrl').value;
 
-        function publishFeed() {
-            let text = document.getElementById('postText').value;
-            let media = document.getElementById('postMedia').value;
-            if(!text) {
-                alert('Please write a caption for the post.');
+            if(!desc) {
+                alert('Please write a caption or description for your post.');
                 return;
             }
-            let stream = document.getElementById('feedStream');
-            let post = document.createElement('div');
-            post.className = 'feed-post';
-            post.innerHTML = `
-                <strong>Somnath Borah (Admin/Staff)</strong> <span style="font-size: 12px; color: #777;">• Just now</span>
-                <p style="margin: 5px 0;">${text}</p>
-                <div style="background: #e4e6eb; height: 120px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #555; font-size: 13px;">🎬 Photo / Reel Loaded: ${media ? media : 'Kaziranga Safari Highlight'}</div>
+
+            let feedContainer = document.getElementById('feedContainer');
+            let newPost = document.createElement('div');
+            newPost.className = 'feed-post';
+
+            let badgeText = type === 'Reel' ? '🎬 Published Reel' : '🖼️ Gallery Photo/Video Added';
+            
+            newPost.innerHTML = `
+                <div style="font-size: 13px; font-weight: bold; color: var(--primary-green);">
+                    ${role} <span style="font-size: 11px; color: #777; font-weight: normal;">• Just now</span>
+                </div>
+                <p style="font-size: 13px; margin: 6px 0;">${desc}</p>
+                <div class="media-container">
+                    ${badgeText}: ${url ? url.substring(0, 30) + '...' : 'Kaziranga Nature Asset'}
+                </div>
             `;
-            stream.prepend(post);
-            document.getElementById('postText').value = '';
-            document.getElementById('postMedia').value = '';
+
+            feedContainer.prepend(newPost);
+
+            // Clear inputs
+            document.getElementById('postDesc').value = '';
+            document.getElementById('mediaUrl').value = '';
+            alert(type + ' published successfully by ' + role + '!');
         }
     </script>
 
