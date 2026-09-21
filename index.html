@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borah Service - Kaziranga Wildlife Portal</title>
+    <title>Borah Service - Kaziranga Luxury Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -27,10 +27,9 @@
             background-color: var(--bg-deep);
             color: var(--text-main);
             min-height: 100vh;
-            padding-bottom: 70px; /* Space for bottom nav */
+            padding-bottom: 70px;
         }
 
-        /* TOP INSTAGRAM HEADER */
         .ig-top-bar {
             background: rgba(0, 0, 0, 0.95);
             border-bottom: 1px solid var(--border-color);
@@ -46,7 +45,6 @@
         .ig-logo-text {
             font-size: 20px;
             font-weight: 800;
-            letter-spacing: 0.5px;
             color: #fff;
             font-family: serif;
             font-style: italic;
@@ -64,7 +62,6 @@
             margin: 0 auto;
         }
 
-        /* STORIES BAR */
         .stories-bar {
             display: flex;
             gap: 12px;
@@ -113,7 +110,6 @@
             text-align: center;
         }
 
-        /* FEED SECTIONS */
         .page-section { display: none; }
         .page-section.active { display: block; }
 
@@ -168,7 +164,7 @@
         }
 
         .media-badge {
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.75);
             backdrop-filter: blur(5px);
             padding: 8px 12px;
             border-radius: 6px;
@@ -217,7 +213,7 @@
             margin-right: 6px;
         }
 
-        /* BOTTOM INSTAGRAM NAV BAR */
+        /* BOTTOM NAV */
         .ig-bottom-nav {
             position: fixed;
             bottom: 0;
@@ -236,7 +232,7 @@
             background: none;
             border: none;
             color: var(--text-muted);
-            font-size: 24px;
+            font-size: 22px;
             cursor: pointer;
             display: flex;
             flex-direction: column;
@@ -317,7 +313,7 @@
             background: #262626;
             color: #fff;
             border: none;
-            padding: 8px;
+            padding: 9px;
             border-radius: 8px;
             font-weight: 600;
             font-size: 12px;
@@ -330,7 +326,6 @@
             background: var(--ig-blue);
         }
 
-        /* UPLOAD & CHAT PANELS */
         .panel-box {
             background: var(--surface-dark);
             border: 1px solid var(--border-color);
@@ -341,7 +336,7 @@
         .panel-box h3 { color: var(--primary-gold); font-size: 15px; margin-bottom: 12px; }
         .form-group { margin-bottom: 12px; }
         .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 4px; }
-        input, textarea, select { width: 100%; background: #1e1e1e; border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; color: #fff; font-size: 12px; outline: none; }
+        input, textarea { width: 100%; background: #1e1e1e; border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; color: #fff; font-size: 12px; outline: none; }
         .submit-btn { background: var(--ig-blue); color: #fff; border: none; width: 100%; padding: 10px; border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer; }
 
         .chat-box { height: 240px; overflow-y: auto; background: #1a1a1a; border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; margin-bottom: 10px; display: flex; flex-direction: column; gap: 8px; font-size: 12px; }
@@ -352,7 +347,6 @@
 </head>
 <body>
 
-    <!-- TOP IG BAR -->
     <div class="ig-top-bar">
         <div class="ig-logo-text">Borah Service</div>
         <div class="ig-top-icons">
@@ -363,7 +357,7 @@
 
     <div class="main-container">
 
-        <!-- HOME FEED TAB -->
+        <!-- HOME FEED -->
         <div id="feed-tab" class="page-section active">
             <div class="stories-bar">
                 <div class="story-item" onclick="switchTab('profile-tab', document.getElementById('navProf'))">
@@ -378,14 +372,9 @@
                     <div class="story-ring"><img src="https://images.unsplash.com/photo-1534178631360-155e9de45688?auto=format&fit=crop&w=150&q=80" class="story-img"></div>
                     <span class="story-name">Jeep Safari</span>
                 </div>
-                <div class="story-item">
-                    <div class="story-ring"><img src="https://images.unsplash.com/photo-1575550959106-5a7defe28b56?auto=format&fit=crop&w=150&q=80" class="story-img"></div>
-                    <span class="story-name">Rhino View</span>
-                </div>
             </div>
 
             <div id="igFeedContainer">
-                <!-- Post 1 -->
                 <div class="ig-post">
                     <div class="ig-header">
                         <div class="ig-user-info">
@@ -403,7 +392,6 @@
                         <div class="ig-actions-left">
                             <button class="ig-icon-btn" onclick="toggleLike(this)">🤍</button>
                             <button class="ig-icon-btn">💬</button>
-                            <button class="ig-icon-btn">↗️</button>
                         </div>
                     </div>
                     <div class="ig-likes-count">Liked by 1,424 tourists & others</div>
@@ -411,58 +399,31 @@
                         <span>somnath_borah_official</span> Incredible wildlife moment at Central Range today! Book your luxury slots with Borah Service. 🌿✨
                     </div>
                 </div>
-
-                <!-- Post 2 -->
-                <div class="ig-post">
-                    <div class="ig-header">
-                        <div class="ig-user-info">
-                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" class="ig-avatar">
-                            <div>
-                                <div class="ig-username">somnath_borah_official</div>
-                                <div class="ig-location">Bagori Range - Western Zone</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ig-media-box" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1534178631360-155e9de45688?auto=format&fit=crop&w=800&q=80');">
-                        <div class="media-badge">🦏 One-Horned Rhinoceros Sighting</div>
-                    </div>
-                    <div class="ig-actions">
-                        <div class="ig-actions-left">
-                            <button class="ig-icon-btn" onclick="toggleLike(this)">🤍</button>
-                            <button class="ig-icon-btn">💬</button>
-                            <button class="ig-icon-btn">↗️</button>
-                        </div>
-                    </div>
-                    <div class="ig-likes-count">Liked by 2,190 tourists</div>
-                    <div class="ig-caption">
-                        <span>somnath_borah_official</span> Pure wilderness experience. DM or WhatsApp for booking assistance! 🌿
-                    </div>
-                </div>
             </div>
         </div>
 
-        <!-- SEARCH / PLACES TAB -->
+        <!-- SEARCH / PLACES -->
         <div id="search-tab" class="page-section">
             <div class="panel-box">
-                <h3>🌲 Kaziranga Safari Zones & Places</h3>
-                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Explore prime wildlife zones managed under Borah Service:</p>
+                <h3>🌲 Kaziranga Safari Ranges</h3>
+                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Explore prime zones managed under Borah Service:</p>
                 <div style="background: #1a1a1a; padding: 12px; border-radius: 8px; margin-bottom: 8px; border-left: 3px solid var(--primary-gold);">
                     <b style="font-size: 13px; color: #fff;">1. Central Range (Kohora)</b>
-                    <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Main core area, rich grasslands, highest density of rhinos and elephant rides.</p>
+                    <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Main core area, rich grasslands, highest density of rhinos.</p>
                 </div>
                 <div style="background: #1a1a1a; padding: 12px; border-radius: 8px; border-left: 3px solid var(--primary-gold);">
                     <b style="font-size: 13px; color: #fff;">2. Western Range (Bagori)</b>
-                    <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Marshy lands, excellent landscape for wild water buffaloes and close-up wildlife views.</p>
+                    <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Marshy lands, excellent landscape for wild water buffaloes.</p>
                 </div>
             </div>
         </div>
 
-        <!-- REELS / UPLOAD POST TAB -->
+        <!-- UPLOAD POST -->
         <div id="reels-tab" class="page-section">
             <div class="panel-box">
                 <h3>📸 Share Safari Memory</h3>
                 <div class="form-group">
-                    <label>Location / Range:</label>
+                    <label>Location:</label>
                     <input type="text" id="postLocation" placeholder="e.g. Kohora Range">
                 </div>
                 <div class="form-group">
@@ -470,19 +431,19 @@
                     <textarea id="postCaption" rows="3" placeholder="Write experience..."></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Photo URL (Image link):</label>
+                    <label>Photo URL:</label>
                     <input type="text" id="postImage" placeholder="Paste image link...">
                 </div>
                 <button class="submit-btn" onclick="addNewPost()">Post to Feed 🚀</button>
             </div>
         </div>
 
-        <!-- AI CHAT ASSISTANT TAB -->
+        <!-- AI CHAT -->
         <div id="chat-tab" class="page-section">
             <div class="panel-box">
                 <h3>💬 Borah Service AI Assistant</h3>
                 <div id="chatBox" class="chat-box">
-                    <div class="chat-msg bot">Namaste! Main Borah Service ka AI assistant hoon. Safari booking ya timing ke baare mein kuch bhi puchein.</div>
+                    <div class="chat-msg bot">Namaste! Main Borah Service ka AI assistant hoon. Safari booking ke liye kuch bhi puchein.</div>
                 </div>
                 <div style="display: flex; gap: 8px;">
                     <input type="text" id="chatInput" placeholder="Sawaal likhein..." onkeypress="checkEnter(event)">
@@ -491,7 +452,7 @@
             </div>
         </div>
 
-        <!-- PROFILE TAB (Somnath Borah Facebook/Portal Profile) -->
+        <!-- PROFILE TAB (SOMNATH BORAH - FB LINK CONNECTED) -->
         <div id="profile-tab" class="page-section">
             <div class="profile-header">
                 <div class="profile-info-row">
@@ -520,9 +481,8 @@
                     <a href="https://wa.me/919101311494" target="_blank" class="profile-btn">WhatsApp Booking</a>
                 </div>
             </div>
-
             <div style="padding: 15px; text-align: center; color: var(--text-muted); font-size: 12px;">
-                ✨ Official Kaziranga Guide & Tour Organizer Portal
+                ✨ Official Kaziranga Guide Portal
             </div>
         </div>
 
@@ -533,4 +493,94 @@
         <button class="nav-item active" onclick="switchTab('feed-tab', this)" id="navHome">🏠</button>
         <button class="nav-item" onclick="switchTab('search-tab', this)" id="navSearch">🔍</button>
         <button class="nav-item" onclick="switchTab('reels-tab', this)" id="navReels">➕</button>
-        <button class="nav-item" onclick="switchTab(
+        <button class="nav-item" onclick="switchTab('chat-tab', this)" id="navChat">💬</button>
+        <button class="nav-item" onclick="switchTab('profile-tab', this)" id="navProf">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" class="nav-profile-pic">
+        </button>
+    </div>
+
+    <script>
+        function switchTab(tabId, btnElement) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
+            
+            let targetTab = document.getElementById(tabId);
+            if(targetTab) targetTab.classList.add('active');
+            if(btnElement) btnElement.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function toggleLike(btn) {
+            btn.innerText = (btn.innerText === '🤍') ? '❤️' : '🤍';
+        }
+
+        function addNewPost() {
+            let location = document.getElementById('postLocation').value || 'Kaziranga National Park';
+            let caption = document.getElementById('postCaption').value.trim();
+            let img = document.getElementById('postImage').value.trim();
+
+            if(!caption) {
+                alert('Please write a caption.');
+                return;
+            }
+
+            let container = document.getElementById('igFeedContainer');
+            let newPostCard = document.createElement('div');
+            newPostCard.className = 'ig-post';
+            let bgStyle = img ? `background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('${img}');` : `background: #1f2937;`;
+
+            newPostCard.innerHTML = `
+                <div class="ig-header">
+                    <div class="ig-user-info">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" class="ig-avatar">
+                        <div>
+                            <div class="ig-username">somnath_borah_official</div>
+                            <div class="ig-location">${location}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ig-media-box" style="${bgStyle}">
+                    <div class="media-badge">✨ New Safari Memory</div>
+                </div>
+                <div class="ig-actions">
+                    <div class="ig-actions-left">
+                        <button class="ig-icon-btn" onclick="toggleLike(this)">🤍</button>
+                    </div>
+                </div>
+                <div class="ig-likes-count">Liked by 1 tourist</div>
+                <div class="ig-caption"><span>somnath_borah_official</span> ${caption}</div>
+            `;
+
+            container.prepend(newPostCard);
+            document.getElementById('postCaption').value = '';
+            document.getElementById('postLocation').value = '';
+            document.getElementById('postImage').value = '';
+            alert('Successfully posted to feed!');
+            switchTab('feed-tab', document.getElementById('navHome'));
+        }
+
+        function checkEnter(e) { if(e.key === 'Enter') sendBotMsg(); }
+
+        function sendBotMsg() {
+            let input = document.getElementById('chatInput');
+            let text = input.value.trim();
+            if(!text) return;
+            let box = document.getElementById('chatBox');
+            let uMsg = document.createElement('div');
+            uMsg.className = 'chat-msg user';
+            uMsg.innerText = text;
+            box.appendChild(uMsg);
+            input.value = '';
+            box.scrollTop = box.scrollHeight;
+
+            setTimeout(() => {
+                let bMsg = document.createElement('div');
+                bMsg.className = 'chat-msg bot';
+                bMsg.innerText = "Booking aur queries ke liye WhatsApp par sampark karein: +91 9101311494.";
+                box.appendChild(bMsg);
+                box.scrollTop = box.scrollHeight;
+            }, 400);
+        }
+    </script>
+</body>
+</html>
