@@ -31,20 +31,20 @@
             padding-bottom: 50px;
         }
 
-        /* ================= PREMIUM WELCOME INTRO SPLASH ================= */
+        /* ================= WELCOME INTRO SPLASH ================= */
         #welcomeIntro {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: radial-gradient(circle, #0f2218 0%, #050d09 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+            z-index: 99999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
             text-align: center;
             padding: 20px;
         }
@@ -57,12 +57,6 @@
             object-fit: cover;
             margin-bottom: 20px;
             box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
-            animation: pulseGlow 2s infinite alternate;
-        }
-
-        @keyframes pulseGlow {
-            0% { transform: scale(0.95); box-shadow: 0 0 20px rgba(197, 160, 89, 0.3); }
-            100% { transform: scale(1.05); box-shadow: 0 0 40px rgba(197, 160, 89, 0.7); }
         }
 
         .intro-title {
@@ -85,19 +79,13 @@
             background: linear-gradient(135deg, #c5a059, #dfbf7b);
             color: #050d09;
             border: none;
-            padding: 12px 32px;
+            padding: 14px 36px;
             border-radius: 30px;
             font-weight: 800;
-            font-size: 13px;
+            font-size: 14px;
             cursor: pointer;
             letter-spacing: 1px;
             box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
-            transition: 0.3s;
-        }
-
-        .enter-portal-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.6);
         }
 
         /* Top Header */
@@ -276,7 +264,6 @@
             color: #fff;
             font-size: 20px;
             cursor: pointer;
-            transition: 0.2s;
         }
         .ig-icon-btn:hover { color: var(--ig-red); }
 
@@ -386,12 +373,12 @@
 </head>
 <body>
 
-    <!-- ================= PREMIUM WELCOME INTRO SCREEN ================= -->
+    <!-- ================= WELCOME INTRO SCREEN ================= -->
     <div id="welcomeIntro">
         <img src="https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=250&q=80" alt="Borah Service" class="intro-emblem">
         <div class="intro-title">🌿 Borah Service</div>
         <div class="intro-subtitle">Kaziranga Luxury Safari & Wildlife Portal</div>
-        <button class="enter-portal-btn" onclick="closeIntro()">EXPLORE SAFARI ✨</button>
+        <button class="enter-portal-btn" onclick="openMainPortal()">EXPLORE SAFARI ✨</button>
     </div>
 
     <nav>
@@ -525,21 +512,14 @@
     </div>
 
     <script>
-        function closeIntro() {
+        function openMainPortal() {
             let intro = document.getElementById('welcomeIntro');
             intro.style.opacity = '0';
+            intro.style.visibility = 'hidden';
             setTimeout(() => {
                 intro.style.display = 'none';
-            }, 800);
+            }, 600);
         }
-
-        // Auto close intro after 3.5 seconds if user doesn't click
-        setTimeout(() => {
-            let intro = document.getElementById('welcomeIntro');
-            if(intro && intro.style.display !== 'none') {
-                closeIntro();
-            }
-        }, 3500);
 
         function switchTab(tabId, btnElement) {
             document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
@@ -567,4 +547,15 @@
                 return;
             }
 
-            let container = document.getElementById('igFeedC
+            let container = document.getElementById('igFeedContainer');
+            let newPostCard = document.createElement('div');
+            newPostCard.className = 'ig-post';
+
+            let bgStyle = img ? `background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('${img}'); background-size: cover; background-position: center;` : 'background: linear-gradient(45deg, #121212, #1f2937);';
+
+            newPostCard.innerHTML = `
+                <div class="ig-header">
+                    <div class="ig-user-info">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="ig-avatar">
+                        <div>
+                            <div class="ig-username">${author.toLowerCase()
