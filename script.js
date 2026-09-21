@@ -1,149 +1,315 @@
-const packagesData = [
-    {
-        title: "Kohora Range (Central)",
-        price: "₹3,500 / Jeep",
-        desc: "The heart of Kaziranga. High density of Great Indian Rhinos and scenic grassland views.",
-        img: "https://images.unsplash.com/photo-1534178631360-155e9de45688?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-        title: "Bagori Range (Western)",
-        price: "₹3,500 / Jeep",
-        desc: "Famous for close-range rhino sightings, water buffaloes, and beautiful wetlands.",
-        img: "https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=600&q=80"
-    }
-];
-
-const employeesData = [
-    { name: "Rahul Borah", role: "Senior Guide - 9101000000" }
-];
-
-function renderPackages() {
-    const container = document.getElementById('dynamicPackagesContainer');
-    if (!container) return;
-    container.innerHTML = '';
-    packagesData.forEach(pkg => {
-        container.innerHTML += `
-            <div class="pkg-card">
-                <img src="${pkg.img}" class="pkg-img" onerror="this.src='https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=600&q=80'">
-                <div class="pkg-body">
-                    <div class="pkg-title">${pkg.title}</div>
-                    <div class="pkg-desc">${pkg.desc}</div>
-                    <div class="pkg-footer">
-                        <div class="pkg-price">${pkg.price}</div>
-                        <button class="btn-gold" onclick="selectSafari('${pkg.title}')">Book Now</button>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
+:root {
+    --bg-base: #09090b;
+    --surface: #121215;
+    --surface-card: #18181b;
+    --border: #27272a;
+    --primary: #d4af37;
+    --primary-hover: #c5a059;
+    --text-main: #fafafa;
+    --text-muted: #a1a1aa;
 }
 
-function renderEmployees() {
-    const list = document.getElementById('employeeDisplayList');
-    if (!list) return;
-    list.innerHTML = '';
-    if (employeesData.length === 0) {
-        list.innerHTML = '<div class="employee-item"><span>No employees added yet</span></div>';
-        return;
-    }
-    employeesData.forEach(emp => {
-        list.innerHTML += `<div class="employee-item"><span>${emp.name} (${emp.role})</span><span>Active</span></div>`;
-    });
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
-function addNewPackage() {
-    const titleInput = document.getElementById('admTitle');
-    const priceInput = document.getElementById('admPrice');
-    const descInput = document.getElementById('admDesc');
-    const imgInput = document.getElementById('admImg');
-
-    if (!titleInput || !priceInput) return;
-
-    const title = titleInput.value.trim();
-    const price = priceInput.value.trim();
-    const desc = descInput ? descInput.value.trim() : '';
-    const img = imgInput ? imgInput.value.trim() : '';
-
-    if (!title || !price) {
-        alert('Kripya Package Title aur Price bharein.');
-        return;
-    }
-
-    packagesData.unshift({
-        title: title,
-        price: price,
-        desc: desc || 'Exciting wildlife safari tour slot.',
-        img: img || 'https://images.unsplash.com/photo-1534178631360-155e9de45688?auto=format&fit=crop&w=600&q=80'
-    });
-
-    renderPackages();
-    alert('Package successfully added!');
-    switchTab('home', document.querySelectorAll('.nav-btn')[0]);
+body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding-bottom: 90px;
 }
 
-function addEmployee() {
-    const nameInput = document.getElementById('empName');
-    const roleInput = document.getElementById('empRole');
-
-    if (!nameInput || !roleInput) return;
-
-    const name = nameInput.value.trim();
-    const role = roleInput.value.trim();
-
-    if (!name || !role) {
-        alert('Kripya Employee Name aur Role/Phone bharein.');
-        return;
-    }
-
-    employeesData.push({ name: name, role: role });
-    renderEmployees();
-    alert('Employee successfully added!');
-    nameInput.value = '';
-    roleInput.value = '';
-    switchTab('profile', document.querySelectorAll('.nav-btn')[3]);
+.app-header {
+    background: rgba(9, 9, 11, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-function switchTab(tabName, btnElement) {
-    document.querySelectorAll('.page-panel').forEach(panel => panel.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-
-    const activePanel = document.getElementById('panel-' + tabName);
-    if (activePanel) activePanel.classList.add('active');
-    if (btnElement) btnElement.classList.add('active');
-    window.scrollTo(0, 0);
+.brand-title {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: italic;
 }
 
-function selectSafari(rangeName) {
-    const select = document.getElementById('bookRange');
-    if (select) {
-        select.value = rangeName;
-    }
-    switchTab('booking', document.querySelectorAll('.nav-btn')[1]);
+.header-badge {
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-function submitBooking() {
-    const nameInput = document.getElementById('bookName');
-    const rangeInput = document.getElementById('bookRange');
-    const dateInput = document.getElementById('bookDate');
-    const guestsInput = document.getElementById('bookGuests');
-
-    if (!nameInput || !dateInput) return;
-
-    const name = nameInput.value.trim();
-    const range = rangeInput ? rangeInput.value : '';
-    const date = dateInput.value;
-    const guests = guestsInput ? guestsInput.value : '';
-
-    if (!name || !date) {
-        alert('Kripya apna Naam aur Date zaroor bharein.');
-        return;
-    }
-
-    const msg = `Hello Somnath Borah, I want to book a Safari:%0A- Name: ${name}%0A- Range: ${range}%0A- Date: ${date}%0A- Guests: ${guests}`;
-    window.open(`https://wa.me/919101311494?text=${msg}`, '_blank');
+.main-wrapper {
+    max-width: 480px;
+    margin: 0 auto;
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    renderPackages();
-    renderEmployees();
-});
+.page-panel {
+    display: none;
+}
+.page-panel.active {
+    display: block;
+}
+
+.hero-banner {
+    margin: 16px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=800&q=80') center/cover;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    border: 1px solid var(--border);
+}
+
+.hero-banner h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.hero-banner p {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.section-header {
+    padding: 0 16px;
+    margin: 20px 0 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.packages-grid {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.pkg-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.pkg-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background: #27272a;
+}
+
+.pkg-body {
+    padding: 16px;
+}
+
+.pkg-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.pkg-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.pkg-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+}
+
+.pkg-price {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.btn-gold {
+    background: var(--primary);
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.booking-box, .admin-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 16px;
+}
+
+.form-control {
+    margin-bottom: 14px;
+}
+
+.form-control label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.form-control input, .form-control select, .form-control textarea {
+    width: 100%;
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    color: #fff;
+    font-size: 13px;
+    outline: none;
+}
+
+.profile-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    margin: 16px;
+    text-align: center;
+}
+
+.profile-avatar-container {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    margin: 0 auto 14px auto;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.profile-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.profile-role {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.profile-bio {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-social {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.btn-fb { background: #1877f2; color: #fff; }
+.btn-wa { background: #25d366; color: #000; }
+
+.employee-list {
+    margin-top: 15px;
+    background: var(--surface-card);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: left;
+}
+.employee-item {
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+}
+.employee-item:last-child { border-bottom: none; }
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(9, 9, 11, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.nav-btn span.icon { font-size: 20px; }
+.nav-btn.active { color: var(--primary); }
+    
