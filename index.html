@@ -31,7 +31,7 @@
             padding-bottom: 50px;
         }
 
-        /* ================= WELCOME INTRO SPLASH ================= */
+        /* WELCOME INTRO SCREEN */
         #welcomeIntro {
             position: fixed;
             top: 0;
@@ -43,8 +43,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 99999;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
+            z-index: 999999;
             text-align: center;
             padding: 20px;
         }
@@ -123,7 +122,6 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 11px;
-            transition: 0.2s;
         }
 
         .tab-btn.active, .tab-btn:hover {
@@ -131,14 +129,12 @@
             color: #000;
         }
 
-        /* Container */
         .main-container {
             max-width: 480px;
             margin: 0 auto;
             padding: 0;
         }
 
-        /* Instagram Stories Bar */
         .stories-bar {
             display: flex;
             gap: 12px;
@@ -187,11 +183,9 @@
             text-align: center;
         }
 
-        /* Sections */
         .page-section { display: none; }
         .page-section.active { display: block; }
 
-        /* Instagram Feed Post Card */
         .ig-post {
             background: var(--surface-dark);
             border-bottom: 1px solid var(--border-color);
@@ -265,7 +259,6 @@
             font-size: 20px;
             cursor: pointer;
         }
-        .ig-icon-btn:hover { color: var(--ig-red); }
 
         .ig-likes-count {
             font-size: 12px;
@@ -287,7 +280,6 @@
             margin-right: 6px;
         }
 
-        /* Upload Panel */
         .upload-panel {
             background: var(--surface-dark);
             border: 1px solid var(--border-color);
@@ -325,10 +317,6 @@
             color: #fff;
             font-size: 12px;
             outline: none;
-        }
-
-        select:focus, input:focus, textarea:focus {
-            border-color: var(--primary-gold);
         }
 
         .ig-submit-btn {
@@ -373,7 +361,7 @@
 </head>
 <body>
 
-    <!-- ================= WELCOME INTRO SCREEN ================= -->
+    <!-- WELCOME INTRO SCREEN -->
     <div id="welcomeIntro">
         <img src="https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=250&q=80" alt="Borah Service" class="intro-emblem">
         <div class="intro-title">🌿 Borah Service</div>
@@ -393,9 +381,7 @@
 
     <div class="main-container">
 
-        <!-- ================= HOME / INSTAGRAM FEED ================= -->
         <div id="feed-tab" class="page-section active">
-            
             <div class="stories-bar">
                 <div class="story-item">
                     <div class="story-ring"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" class="story-img"></div>
@@ -405,18 +391,9 @@
                     <div class="story-ring"><img src="https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=150&q=80" class="story-img"></div>
                     <span class="story-name">Kohora Zone</span>
                 </div>
-                <div class="story-item">
-                    <div class="story-ring"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="story-img"></div>
-                    <span class="story-name">Tourist Memory</span>
-                </div>
-                <div class="story-item">
-                    <div class="story-ring"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="story-img"></div>
-                    <span class="story-name">Bagori Range</span>
-                </div>
             </div>
 
             <div id="igFeedContainer">
-                
                 <div class="ig-post">
                     <div class="ig-header">
                         <div class="ig-user-info">
@@ -426,7 +403,6 @@
                                 <div class="ig-location">Kaziranga National Park - Kohora</div>
                             </div>
                         </div>
-                        <span style="color: #a8a8a8; font-size: 16px;">•••</span>
                     </div>
                     <div class="ig-media-box" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;">
                         🐘 Morning Jeep Safari Adventure & Rhino Sighting
@@ -435,72 +411,56 @@
                         <div class="ig-actions-left">
                             <button class="ig-icon-btn" onclick="toggleLike(this)">🤍</button>
                             <button class="ig-icon-btn">💬</button>
-                            <button class="ig-icon-btn">↗️</button>
                         </div>
-                        <button class="ig-icon-btn">🔖</button>
                     </div>
                     <div class="ig-likes-count">Liked by 1,424 tourists & others</div>
                     <div class="ig-caption">
                         <span>somnath_borah_official</span> Incredible wildlife moment at Central Range today! Book your slots with Borah Service. 🌿✨
                     </div>
                 </div>
-
             </div>
-
         </div>
 
-        <!-- ================= PLACES TAB ================= -->
         <div id="places-tab" class="page-section">
             <div class="content-card">
                 <h3>🌲 Kaziranga Safari Ranges</h3>
                 <p><b>1. Central Range (Kohora):</b> Core zone with grasslands, best for One-Horned Rhino and elephant sightings.</p>
                 <p><b>2. Western Range (Bagori):</b> Marshy wetlands, ideal for wild water buffaloes and close rhino views.</p>
-                <p><b>3. Eastern Range (Agoratoli):</b> Deep forest area, best for bird watchers and photography.</p>
-                <p><b>4. Burapahar Range:</b> Hilly landscape along the Brahmaputra River.</p>
             </div>
         </div>
 
-        <!-- ================= UPLOAD TAB ================= -->
         <div id="upload-tab" class="page-section">
             <div class="upload-panel">
                 <h3>📸 Upload Memories & Safari Post</h3>
-                <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">Owner, employees ya tourist yahan apni best memories aur photos upload kar sakte hain:</p>
-
                 <div class="form-group">
-                    <label>Posted By (Role / Name):</label>
+                    <label>Posted By:</label>
                     <select id="postAuthor">
                         <option value="Somnath Borah (Owner)">Somnath Borah (Owner)</option>
                         <option value="Rajib Borah (Guide)">Rajib Borah (Guide)</option>
-                        <option value="Bikash Das (Driver)">Bikash Das (Driver)</option>
                         <option value="Happy Tourist Guest">Happy Tourist Guest</option>
                     </select>
                 </div>
-
                 <div class="form-group">
-                    <label>Location / Range:</label>
-                    <input type="text" id="postLocation" placeholder="e.g. Kohora Range, Kaziranga">
+                    <label>Location:</label>
+                    <input type="text" id="postLocation" placeholder="e.g. Kohora Range">
                 </div>
-
                 <div class="form-group">
-                    <label>Caption / Memory details:</label>
-                    <textarea id="postCaption" rows="3" placeholder="Write about your wonderful safari experience..."></textarea>
+                    <label>Caption:</label>
+                    <textarea id="postCaption" rows="3" placeholder="Write experience..."></textarea>
                 </div>
-
                 <div class="form-group">
-                    <label>Photo URL / Asset link:</label>
-                    <input type="text" id="postImage" placeholder="Paste image link or leave blank for default...">
+                    <label>Photo URL:</label>
+                    <input type="text" id="postImage" placeholder="Paste image link...">
                 </div>
-
                 <button class="ig-submit-btn" onclick="addNewPost()">Share to Feed 🚀</button>
             </div>
         </div>
 
-        <!-- ================= AI CHATBOT TAB ================= -->
         <div id="chat-tab" class="page-section">
             <div class="content-card">
                 <h3>💬 AI Customer Service Bot</h3>
                 <div id="chatBox" class="chat-box">
-                    <div class="chat-msg bot">Namaste! Main Borah Service ka AI Assistant hoon. Safari timing ya booking ke liye kya sahayata chahiye?</div>
+                    <div class="chat-msg bot">Namaste! Main Borah Service ka AI Assistant hoon.</div>
                 </div>
                 <div style="display: flex; gap: 8px;">
                     <input type="text" id="chatInput" placeholder="Sawaal likhein..." onkeypress="checkEnter(event)">
@@ -514,11 +474,7 @@
     <script>
         function openMainPortal() {
             let intro = document.getElementById('welcomeIntro');
-            intro.style.opacity = '0';
-            intro.style.visibility = 'hidden';
-            setTimeout(() => {
-                intro.style.display = 'none';
-            }, 600);
+            intro.remove(); // Completely removes splash element from DOM instantly
         }
 
         function switchTab(tabId, btnElement) {
@@ -529,11 +485,7 @@
         }
 
         function toggleLike(btn) {
-            if(btn.innerText === '🤍') {
-                btn.innerText = '❤️';
-            } else {
-                btn.innerText = '🤍';
-            }
+            btn.innerText = (btn.innerText === '🤍') ? '❤️' : '🤍';
         }
 
         function addNewPost() {
@@ -543,19 +495,65 @@
             let img = document.getElementById('postImage').value.trim();
 
             if(!caption) {
-                alert('Please write a caption for your post.');
+                alert('Please write a caption.');
                 return;
             }
 
             let container = document.getElementById('igFeedContainer');
             let newPostCard = document.createElement('div');
             newPostCard.className = 'ig-post';
-
-            let bgStyle = img ? `background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('${img}'); background-size: cover; background-position: center;` : 'background: linear-gradient(45deg, #121212, #1f2937);';
+            let bgStyle = img ? `background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('${img}'); background-size: cover; background-position: center;` : 'background: #1f2937;';
 
             newPostCard.innerHTML = `
                 <div class="ig-header">
                     <div class="ig-user-info">
                         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="ig-avatar">
                         <div>
-                            <div class="ig-username">${author.toLowerCase()
+                            <div class="ig-username">${author.toLowerCase().replace(/[^a-z0-9]/g, '_')}</div>
+                            <div class="ig-location">${location}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ig-media-box" style="${bgStyle}">✨ Memory Added</div>
+                <div class="ig-actions">
+                    <div class="ig-actions-left">
+                        <button class="ig-icon-btn" onclick="toggleLike(this)">🤍</button>
+                    </div>
+                </div>
+                <div class="ig-likes-count">Liked by 1 tourist</div>
+                <div class="ig-caption"><span>${author.toLowerCase().replace(/[^a-z0-9]/g, '_')}</span> ${caption}</div>
+            `;
+
+            container.prepend(newPostCard);
+            document.getElementById('postCaption').value = '';
+            document.getElementById('postLocation').value = '';
+            document.getElementById('postImage').value = '';
+            alert('Successfully shared!');
+            switchTab('feed-tab', document.querySelector('.tab-btn'));
+        }
+
+        function checkEnter(e) { if(e.key === 'Enter') sendBotMsg(); }
+
+        function sendBotMsg() {
+            let input = document.getElementById('chatInput');
+            let text = input.value.trim();
+            if(!text) return;
+            let box = document.getElementById('chatBox');
+            let uMsg = document.createElement('div');
+            uMsg.className = 'chat-msg user';
+            uMsg.innerText = text;
+            box.appendChild(uMsg);
+            input.value = '';
+            box.scrollTop = box.scrollHeight;
+
+            setTimeout(() => {
+                let bMsg = document.createElement('div');
+                bMsg.className = 'chat-msg bot';
+                bMsg.innerText = "Booking ke liye WhatsApp karein: +91 9101311494.";
+                box.appendChild(bMsg);
+                box.scrollTop = box.scrollHeight;
+            }, 400);
+        }
+    </script>
+</body>
+</html>
