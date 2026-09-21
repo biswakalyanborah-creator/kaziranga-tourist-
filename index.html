@@ -3,569 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borah Service | Kaziranga Luxury Safari</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Borah Service - Kaziranga Safari Booking</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-base: #09090b;
-            --surface: #121215;
-            --surface-card: #18181b;
-            --border: #27272a;
-            --primary: #d4af37;
-            --primary-hover: #c5a059;
-            --text-main: #fafafa;
-            --text-muted: #a1a1aa;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
         body {
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            min-height: 100vh;
-            padding-bottom: 90px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #09090b;
+            color: #f4f4f5;
         }
-
-        .app-header {
-            background: rgba(9, 9, 11, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            padding: 14px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .luxury-font {
+            font-family: 'Playfair Display', serif;
         }
-
-        .brand-title {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-style: italic;
+        .gold-gradient {
+            background: linear-gradient(135deg, #d4af37 0%, #aa771c 100%);
         }
-
-        .header-badge {
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: var(--primary);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            cursor: pointer;
+        .gold-text {
+            color: #d4af37;
         }
-
-        .main-wrapper {
-            max-width: 480px;
-            margin: 0 auto;
+        .gold-border {
+            border-color: rgba(212, 175, 55, 0.3);
         }
-
-        .page-panel {
+        .glassmorphism {
+            background: rgba(18, 18, 22, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        ::-webkit-scrollbar {
             display: none;
         }
-        .page-panel.active {
-            display: block;
-        }
-
-        .hero-banner {
-            margin: 16px;
-            border-radius: 16px;
-            overflow: hidden;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=800&q=80') center/cover;
-            height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .hero-banner h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .hero-banner p {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .section-header {
-            padding: 0 16px;
-            margin: 20px 0 12px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .section-header h2 {
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        .packages-grid {
-            padding: 0 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .pkg-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            overflow: hidden;
-        }
-
-        .pkg-img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            background: #27272a;
-        }
-
-        .pkg-body {
-            padding: 16px;
-        }
-
-        .pkg-title {
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .pkg-desc {
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.5;
-            margin-bottom: 12px;
-        }
-
-        .pkg-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid var(--border);
-            padding-top: 12px;
-        }
-
-        .pkg-price {
-            font-size: 15px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .btn-gold {
-            background: var(--primary);
-            color: #000;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 12px;
-            cursor: pointer;
-        }
-
-        .booking-box, .admin-box {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 20px;
-            margin: 16px;
-        }
-
-        .form-control {
-            margin-bottom: 14px;
-        }
-
-        .form-control label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-        }
-
-        .form-control input, .form-control select, .form-control textarea {
-            width: 100%;
-            background: var(--surface-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 12px;
-            color: #fff;
-            font-size: 13px;
-            outline: none;
-        }
-
-        .profile-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px 20px;
-            margin: 16px;
-            text-align: center;
-        }
-
-        .profile-avatar-container {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            margin: 0 auto 14px auto;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .profile-avatar {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .profile-name {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .profile-role {
-            font-size: 12px;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .profile-bio {
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-social {
-            flex: 1;
-            padding: 10px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 12px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .btn-fb { background: #1877f2; color: #fff; }
-        .btn-wa { background: #25d366; color: #000; }
-
-        .employee-list {
-            margin-top: 15px;
-            background: var(--surface-card);
-            border-radius: 10px;
-            padding: 12px;
-            text-align: left;
-        }
-        .employee-item {
-            font-size: 12px;
-            padding: 6px 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-        }
-        .employee-item:last-child { border-bottom: none; }
-
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(9, 9, 11, 0.95);
-            backdrop-filter: blur(12px);
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            z-index: 1000;
-        }
-
-        .nav-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            cursor: pointer;
-        }
-
-        .nav-btn span.icon { font-size: 20px; }
-        .nav-btn.active { color: var(--primary); }
     </style>
 </head>
-<body>
+<body class="pb-28 max-w-md mx-auto min-h-screen relative shadow-2xl border-x gold-border overflow-x-hidden">
 
-    <header class="app-header">
-        <div class="brand-title">Borah Service</div>
-        <div class="header-badge" onclick="switchTab('admin', document.querySelectorAll('.nav-btn')[2])">⚙️ Admin Panel</div>
+    <!-- Header -->
+    <header class="sticky top-0 z-40 glassmorphism px-5 py-4 flex justify-between items-center border-b gold-border">
+        <div>
+            <h1 class="luxury-font text-2xl font-bold gold-text tracking-wide">Borah Service</h1>
+            <p class="text-[10px] uppercase tracking-widest text-zinc-400">Kaziranga Wildlife Expeditions</p>
+        </div>
+        <div onclick="openAdminPortal()" class="cursor-pointer flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900 border gold-border text-xs gold-text shadow-sm transition hover:scale-105">
+            <i class="fa-solid fa-shield-halved text-[10px]"></i>
+            <span class="font-medium" id="admin-btn-text">Admin</span>
+        </div>
     </header>
 
-    <div class="main-wrapper">
+    <!-- Main Content Area / Tabs Container -->
+    <main class="p-4">
 
-        <!-- HOME PANEL -->
-        <div id="panel-home" class="page-panel active">
-            <div class="hero-banner">
-                <h1>Kaziranga National Park</h1>
-                <p>Official Luxury Jeep & Elephant Safari Expeditions</p>
-            </div>
-
-            <div class="section-header">
-                <h2>Featured Safari Packages</h2>
-            </div>
-
-            <div class="packages-grid" id="dynamicPackagesContainer">
-                <!-- Dynamic packages load here -->
-            </div>
-        </div>
-
-        <!-- BOOKING PANEL -->
-        <div id="panel-booking" class="page-panel">
-            <div class="section-header" style="margin-top: 16px;">
-                <h2>Instant Slot Reservation</h2>
-            </div>
-            <div class="booking-box">
-                <div class="form-control">
-                    <label>Your Full Name</label>
-                    <input type="text" id="bookName" placeholder="Enter your name...">
+        <!-- 1. HOME TAB -->
+        <section id="tab-home" class="tab-content space-y-6">
+            <!-- Hero Banner -->
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border gold-border h-64 flex items-end p-6">
+                <img src="https://images.unsplash.com/photo-1534188753412-3e26d1d618d6?q=80&w=1000&auto=format&fit=crop" alt="Kaziranga Safari" class="absolute inset-0 w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-transparent"></div>
+                <div class="relative z-10 space-y-2">
+                    <span class="bg-[#d4af37]/20 text-[#d4af37] border gold-border px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider">Unmatched Wilderness</span>
+                    <h2 class="luxury-font text-3xl font-extrabold text-white leading-tight">Experience Kaziranga's Majesty</h2>
+                    <p class="text-xs text-zinc-300">Exclusive luxury Jeep & Elephant safaris curated by Somnath Borah.</p>
                 </div>
-                <div class="form-control">
-                    <label>Select Safari / Range</label>
-                    <select id="bookRange">
-                        <option value="Kohora Central Range (Jeep Safari)">Kohora Central Range (Jeep Safari)</option>
-                        <option value="Bagori Western Range (Jeep Safari)">Bagori Western Range (Jeep Safari)</option>
-                        <option value="Agoratoli Eastern Range (Jeep Safari)">Agoratoli Eastern Range (Jeep Safari)</option>
-                        <option value="Elephant Safari (Morning Slot)">Elephant Safari (Morning Slot)</option>
+            </div>
+
+            <!-- Packages Header -->
+            <div class="flex justify-between items-end">
+                <div>
+                    <h3 class="luxury-font text-xl font-bold text-white">Featured Safaris</h3>
+                    <p class="text-xs text-zinc-400">Choose your preferred range exploration</p>
+                </div>
+                <span class="text-xs gold-text underline cursor-pointer" onclick="switchTab('booking')">Book Now</span>
+            </div>
+
+            <!-- Dynamic Packages Grid -->
+            <div id="packages-container" class="space-y-4">
+                <!-- Rendered via JS from LocalStorage -->
+            </div>
+        </section>
+
+        <!-- 2. BOOKING TAB -->
+        <section id="tab-booking" class="tab-content hidden space-y-6">
+            <div>
+                <h3 class="luxury-font text-2xl font-bold text-white">Secure Reservation</h3>
+                <p class="text-xs text-zinc-400">Fill out your details to book instantly via WhatsApp</p>
+            </div>
+
+            <div class="glassmorphism p-5 rounded-2xl border gold-border space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-zinc-300 mb-1">Full Name</label>
+                    <input type="text" id="bk-name" placeholder="Enter your full name" class="w-full bg-zinc-900 border gold-border rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#d4af37]">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-zinc-300 mb-1">Select Safari / Range</label>
+                    <select id="bk-range" class="w-full bg-zinc-900 border gold-border rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#d4af37]">
+                        <!-- Populated Dynamically -->
                     </select>
                 </div>
-                <div class="form-control">
-                    <label>Preferred Date</label>
-                    <input type="date" id="bookDate">
-                </div>
-                <div class="form-control">
-                    <label>Number of Guests</label>
-                    <select id="bookGuests">
-                        <option value="1-6 Persons (1 Jeep)">1 - 6 Persons (1 Jeep)</option>
-                        <option value="7-12 Persons (2 Jeeps)">7 - 12 Persons (2 Jeeps)</option>
-                        <option value="Custom Group (>12)">Custom Group (> 12 Persons)</option>
-                    </select>
-                </div>
-                <button class="btn-gold" style="width: 100%; padding: 14px; font-size: 14px; margin-top: 6px;" onclick="submitBooking()">Book Instantly via WhatsApp 🚀</button>
-            </div>
-        </div>
 
-        <!-- ADMIN PANEL -->
-        <div id="panel-admin" class="page-panel">
-            <div class="section-header" style="margin-top: 16px;">
-                <h2>Admin Control Center</h2>
+                <div>
+                    <label class="block text-xs font-medium text-zinc-300 mb-1">Preferred Date (Future Dates Only)</label>
+                    <input type="date" id="bk-date" class="w-full bg-zinc-900 border gold-border rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#d4af37]">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-zinc-300 mb-1">Number of Guests (1 - 6)</label>
+                    <input type="number" id="bk-guests" min="1" max="6" value="2" class="w-full bg-zinc-900 border gold-border rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-[#d4af37]">
+                </div>
+
+                <button onclick="bookViaWhatsApp()" class="w-full py-3.5 gold-gradient text-[#09090b] font-extrabold rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg transition hover:scale-[1.02]">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    Book Instantly via WhatsApp
+                </button>
             </div>
-            
-            <div class="admin-box">
-                <h3 style="font-size: 14px; color: var(--primary); margin-bottom: 12px;">➕ Add Custom Package & Price</h3>
-                <div class="form-control">
-                    <label>Package Title / Range</label>
-                    <input type="text" id="admTitle" placeholder="e.g. Burapahar Range">
+        </section>
+
+        <!-- 3. ADMIN PANEL TAB (Protected) -->
+        <section id="tab-admin" class="tab-content hidden space-y-6">
+            <!-- Lock Screen if not authenticated -->
+            <div id="admin-auth-box" class="glassmorphism p-6 rounded-2xl border gold-border text-center space-y-4">
+                <div class="w-16 h-16 mx-auto bg-zinc-900 rounded-full flex items-center justify-center border gold-border gold-text text-xl">
+                    <i class="fa-solid fa-lock"></i>
                 </div>
-                <div class="form-control">
-                    <label>Price (in INR)</label>
-                    <input type="text" id="admPrice" placeholder="e.g. ₹4,000 / Jeep">
-                </div>
-                <div class="form-control">
-                    <label>Description</label>
-                    <input type="text" id="admDesc" placeholder="Short description...">
-                </div>
-                <div class="form-control">
-                    <label>Image URL</label>
-                    <input type="text" id="admImg" placeholder="Paste direct image link...">
-                </div>
-                <button class="btn-gold" style="width: 100%; padding: 10px;" onclick="addNewPackage()">Add Package to Site</button>
+                <h3 class="luxury-font text-xl font-bold text-white">Admin Authentication</h3>
+                <p class="text-xs text-zinc-400">Enter Admin PIN to manage inventory (Default PIN: <span class="gold-text font-bold">1234</span>)</p>
+                <input type="password" id="admin-pin" placeholder="Enter 4-digit PIN" maxlength="4" class="w-full text-center tracking-widest bg-zinc-900 border gold-border rounded-lg px-3 py-2.5 text-lg text-white focus:outline-none">
+                <button onclick="verifyAdminPin()" class="w-full py-2.5 gold-gradient text-[#09090b] font-bold rounded-lg text-xs uppercase tracking-wider">
+                    Unlock Panel
+                </button>
             </div>
 
-            <div class="admin-box">
-                <h3 style="font-size: 14px; color: var(--primary); margin-bottom: 12px;">👤 Add Employee / Guide</h3>
-                <div class="form-control">
-                    <label>Employee Name</label>
-                    <input type="text" id="empName" placeholder="e.g. Rahul Borah">
-                </div>
-                <div class="form-control">
-                    <label>Role / Phone</label>
-                    <input type="text" id="empRole" placeholder="e.g. Senior Guide - 9101XXXXXX">
-                </div>
-                <button class="btn-gold" style="width: 100%; padding: 10px;" onclick="addEmployee()">Add Employee</button>
-            </div>
-        </div>
-
-        <!-- OWNER / PROFILE PANEL -->
-        <div id="panel-profile" class="page-panel">
-            <div class="profile-card">
-                <div class="profile-avatar-container">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" 
-                         class="profile-avatar" id="adminProfileImg" alt="Somnath Borah">
-                </div>
-                <div class="profile-name">Somnath Borah</div>
-                <div class="profile-role">Founder & Lead Operator</div>
-                <div class="profile-bio">
-                    Dedicated to providing world-class, safe, and memorable wildlife expedition experiences across all ranges of Kaziranga National Park with verified government-registered guides.
-                </div>
-                
-                <div style="text-align: left; margin-bottom: 15px;">
-                    <b style="font-size: 12px; color: var(--primary);">Our Expert Team & Guides:</b>
-                    <div class="employee-list" id="employeeDisplayList">
-                        <!-- Employees load here -->
+            <!-- Dashboard Content (Hidden until unlocked) -->
+            <div id="admin-dashboard-box" class="hidden space-y-6">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="luxury-font text-2xl font-bold text-white">Admin Dashboard</h3>
+                        <p class="text-xs text-zinc-400">Manage safari inventory & staff deployment</p>
                     </div>
+                    <button onclick="lockAdmin()" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-semibold">
+                        Lock <i class="fa-solid fa-lock"></i>
+                    </button>
                 </div>
 
-                <div class="social-buttons">
-                    <a href="https://www.facebook.com/share/19UHXExMDK/" target="_blank" class="btn-social btn-fb">🌐 Facebook</a>
-                    <a href="https://wa.me/919101311494" target="_blank" class="btn-social btn-wa">💬 WhatsApp Support</a>
+                <!-- Add Package Form -->
+                <div class="glassmorphism p-5 rounded-2xl border gold-border space-y-4">
+                    <h4 class="text-sm font-bold gold-text tracking-wide uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-plus-circle"></i> Add Custom Package
+                    </h4>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-300 mb-1">Package Title</label>
+                        <input type="text" id="admin-pkg-title" placeholder="e.g. Panbari Reserve Safari" class="w-full bg-zinc-900 border gold-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-300 mb-1">Price (₹)</label>
+                        <input type="number" id="admin-pkg-price" placeholder="3500" class="w-full bg-zinc-900 border gold-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-300 mb-1">Description</label>
+                        <textarea id="admin-pkg-desc" rows="2" placeholder="Short description..." class="w-full bg-zinc-900 border gold-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-300 mb-1">Image URL (Optional)</label>
+                        <input type="url" id="admin-pkg-img" placeholder="https://images.unsplash.com/..." class="w-full bg-zinc-900 border gold-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none">
+                    </div>
+                    <button onclick="addNewPackage()" class="w-full py-2.5 gold-gradient text-[#09090b] font-bold rounded-lg text-xs uppercase tracking-wider">
+                        Publish Package
+                    </button>
+                </div>
+
+                <!-- Add Employee/Guide Form -->
+                <div class="glassmorphism p-5 rounded-2xl border gold-border space-y-4">
+                    <h4 class="text-sm font-bold gold-text tracking-wide uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-user-plus"></i> Add Guide / Employee
+                    </h4>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-300 mb-1">Guide Name</label>
+                        <input type="text" id="admin-emp-name" placeholder="e.g. Pranjal Borah" class="w-full bg-zinc-900 border gold-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-300 mb-1">Role & Contact Phone</label>
+                        <input type="text" id="admin-emp-role" placeholder="Senior Naturalist - +91 XXXXX XXXXX" class="w-full bg-zinc-900 border gold-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none">
+                    </div>
+                    <button onclick="addNewEmployee()" class="w-full py-2.5 gold-gradient text-[#09090b] font-bold rounded-lg text-xs uppercase tracking-wider">
+                        Add Team Member
+                    </button>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </div>
+        <!-- 4. OWNER PROFILE TAB -->
+        <section id="tab-owner" class="tab-content hidden space-y-6">
+            <div>
+                <h3 class="luxury-font text-2xl font-bold text-white">Founder Profile</h3>
+                <p class="text-xs text-zinc-400">Meet the mastermind behind Borah Service</p>
+            </div>
 
-    <nav class="bottom-nav">
-        <button class="nav-btn active" onclick="switchTab('home', this)">
-            <span class="icon">🏠</span>
-            <span>Home</span>
+            <!-- Owner Card -->
+            <div class="glassmorphism p-6 rounded-2xl border gold-border text-center space-y-4">
+                <div class="relative w-28 h-28 mx-auto rounded-full overflow-hidden border-2 gold-border shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Somnath Borah" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h4 class="luxury-font text-xl font-bold text-white">Somnath Borah</h4>
+                    <p class="text-xs gold-text uppercase tracking-widest mt-0.5">Founder & Chief Safari Operator</p>
+                </div>
+                <p class="text-xs text-zinc-300 leading-relaxed">
+                    With over 15+ years of guiding through Kaziranga's untamed jungles, Somnath Borah ensures safe, highly informative, and luxurious wildlife expeditions for travelers globally.
+                </p>
+
+                <!-- Direct Support Buttons -->
+                <div class="flex gap-3 pt-2">
+                    <a href="https://wa.me/919101311494" target="_blank" class="flex-1 py-2.5 rounded-xl bg-emerald-600/20 border border-emerald-500/40 text-emerald-400 font-bold text-xs flex items-center justify-center gap-2 transition hover:bg-emerald-600/30">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="flex-1 py-2.5 rounded-xl bg-blue-600/20 border border-blue-500/40 text-blue-400 font-bold text-xs flex items-center justify-center gap-2 transition hover:bg-blue-600/30">
+                        <i class="fa-brands fa-facebook text-sm"></i> Facebook
+                    </a>
+                </div>
+            </div>
+
+            <!-- Active Team / Guides List -->
+            <div class="space-y-3">
+                <h4 class="luxury-font text-lg font-bold text-white">Active Expert Guides</h4>
+                <div id="guides-container" class="space-y-2.5">
+                    <!-- Rendered via JS from LocalStorage -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-[400px] glassmorphism rounded-2xl p-2 flex justify-around items-center z-50 shadow-2xl border gold-border">
+        <button onclick="switchTab('home')" id="nav-home" class="flex flex-col items-center gap-1 py-1.5 px-3 rounded-xl transition text-[#d4af37]">
+            <i class="fa-solid fa-compass text-base"></i>
+            <span class="text-[10px] font-semibold tracking-wider">Home</span>
         </button>
-        <button class="nav-btn" onclick="switchTab('booking', this)">
-            <span class="icon">🎟️</span>
-            <span>Booking</span>
+        <button onclick="switchTab('booking')" id="nav-booking" class="flex flex-col items-center gap-1 py-1.5 px-3 rounded-xl transition text-zinc-400 hover:text-[#d4af37]">
+            <i class="fa-solid fa-calendar-days text-base"></i>
+            <span class="text-[10px] font-semibold tracking-wider">Booking</span>
         </button>
-        <button class="nav-btn" onclick="switchTab('admin', this)">
-            <span class="icon">⚙️</span>
-            <span>Admin</span>
+        <button onclick="switchTab('admin')" id="nav-admin" class="flex flex-col items-center gap-1 py-1.5 px-3 rounded-xl transition text-zinc-400 hover:text-[#d4af37]">
+            <i class="fa-solid fa-screwdriver-wrench text-base"></i>
+            <span class="text-[10px] font-semibold tracking-wider">Admin</span>
         </button>
-        <button class="nav-btn" onclick="switchTab('profile', this)">
-            <span class="icon">👤</span>
-            <span>Owner</span>
+        <button onclick="switchTab('owner')" id="nav-owner" class="flex flex-col items-center gap-1 py-1.5 px-3 rounded-xl transition text-zinc-400 hover:text-[#d4af37]">
+            <i class="fa-solid fa-user-tie text-base"></i>
+            <span class="text-[10px] font-semibold tracking-wider">Owner</span>
         </button>
     </nav>
 
+    <!-- Advanced JavaScript Logic -->
     <script>
-        const packagesData = [
-            {
-                title: "Kohora Central Range",
-                price: "₹3,500 / Jeep",
-                desc: "The heart of Kaziranga. High density of Great Indian Rhinos and scenic grassland views.",
-                img: "https://images.unsplash.com/photo-1534178631360-155e9de45688?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                title: "Bagori Western Range",
-                price: "₹3,500 / Jeep",
-                desc: "Famous for close-range rhino sightings, water buffaloes, and beautiful wetlands.",
-                img: "https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=600&q=80"
-            },
-            {
-                title: "Agoratoli Eastern Range",
-                price: "₹3,800 / Jeep",
-                desc: "Best for bird watchers, wild elephants, and serene deep forest landscapes.",
-                img: "https://images.unsplash.com/photo-1534178631360-155e9de45688?auto=format&fit=crop&w=600&q=80"
-            }
+        // Initial Default Data
+        const defaultPackages = [
+            { id: 1, title: "Kohora Central Range", price: "3500", desc: "Famous for high density of One-horned Rhinos and lush green swamp forests.", img: "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?q=80&w=800&auto=format&fit=crop" },
+            { id: 2, title: "Bagori Western Range", price: "3800", desc: "Known for close encounters with rhinos and breathtaking riverine landscapes.", img: "https://images.unsplash.com/photo-1575550959106-5a7defe28b56?q=80&w=800&auto=format&fit=crop" },
+            { id: 3, title: "Agoratoli Eastern Range", price: "4000", desc: "A haven for bird watchers and water buffaloes with pristine wetland ecosystems.", img: "https://images.unsplash.com/photo-1549366021-9f761d450615?q=80&w=800&auto=format&fit=crop" }
         ];
 
-        const employeesData = [
-            { name: "Rahul Borah", role: "Senior Guide - 9101000000" },
-            { name: "Bikash Saikia", role: "Jeep Driver & Naturalist" }
+        const defaultGuides = [
+            { name: "Dipen Saikia", role: "Senior Jeep Pilot • +91 98765 43210" },
+            { name: "Bhaben Hazarika", role: "Wildlife Tracker • +91 91234 56789" }
         ];
 
-        function renderPackages() {
-            const container = document.getElementById('dynamicPackagesContainer');
-            if (!container) return;
-            container.innerHTML = '';
-            packagesData.forEach(pkg => {
-                container.innerHTML += `
-                    <div class="pkg-card">
-                        <img src="${pkg.img}" class="pkg-img" onerror="this.src='https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=600&q=80'">
-                        <div class="pkg-body">
-                            <div class="pkg-title">${pkg.title}</div>
-                            <div class="pkg-desc">${pkg.desc}</div>
-                            <div class="pkg-footer">
-                                <div class="pkg-price">${pkg.price}</div>
-                                <button class="btn-gold" onclick="selectSafari('${pkg.title}')">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
+        // LocalStorage Initializer
+        if (!localStorage.getItem('borah_packages')) {
+            localStorage.setItem('borah_packages', JSON.stringify(defaultPackages));
+        }
+        if (!localStorage.getItem('borah_guides')) {
+            localStorage.setItem('borah_guides', JSON.stringify(defaultGuides));
         }
 
-        function renderEmployees() {
-            const list = document.getElementById('employeeDisplayList');
-            if (!list) return;
-            list.innerHTML = '';
-            employeesData.forEach(emp => {
-                list.innerHTML += `<div class="employee-item"><span>${emp.name} (${emp.role})</span><span>Active</span></div>`;
-            });
-        }
+        let isAdminUnlocked = false;
 
-        function addNewPackage() {
-            const titleInput = document.getElementById('admTitle');
-            const priceInput = document.getElementById('admPrice');
-            const descInput = document.getElementById('admDesc');
-            const imgInput = document.getElementById('admImg');
-
-            if (!titleInput || !priceInput) return;
-
-            const title = titleInput.value.trim();
-            const price = priceInput.value.trim();
-            const desc = descInput ? descInput.value.trim() : '';
-            const img = imgInput ? imgInput.value.trim() : '';
-
-            if (!title || !price) {
-                alert('Kripya Package Title aur Price bharein.');
-                return;
-            }
-
-            packagesData.unshift({
-                title: title,
-                price: price,
-                desc: desc || 'Exciting wildlife safari tour slot.',
-                img: img || 'https://images.unsplash.com/photo-1534178631360-155e9de45688?auto=format&fit=crop&w=600&q=80'
-            });
-
+        // On Load setup
+        window.onload = function() {
             renderPackages();
-            alert('Package successfully added!');
-            switchTab('home', document.querySelectorAll('.nav-btn')[0]);
+            renderGuides();
+            setupMinDate();
+        };
+
+        // Minimum Date Configuration (Today's date)
+        function setupMinDate() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('bk-date').min = today;
+            document.getElementById('bk-date').value = today;
         }
 
-        function addEmployee() {
-            const nameInput = document.getElementById('empName');
-            const roleInput = document.getElementById('empRole');
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
 
-            if (!nameInput || !roleInput) return;
+            ['home', 'booking', 'admin', 'owner'].forEach(id => {
+                const btn = document.getElementById('nav-' + id);
+                btn.classList.remove('text-[#d4af37]');
+                btn.classList.add('text-zinc-400');
+            });
 
-            const name = nameInput.value.trim();
-            const role = roleInput.value.trim();
+            const activeBtn = document.getElementById('nav-' + tabId);
+            activeBtn.classList.remove('text-zinc-400');
+            activeBtn.classList.add('text-[#d4af37]');
 
-            if (!name || !role) {
-                alert('Kripya Employee Name aur Role/Phon
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Render Packages from LocalStorage
+        function renderPackages() {
+            const packages = JSON.parse(localStorage.getItem('borah_packages')) || [];
+            const container = document.getElementById('packages-container');
+            const selectEl = document.getElementById('bk-range');
+            
+            container.innerHTML = '';
+            selectEl.innerHTML = '';
+
+            packages.forEach(pkg => {
+                // Render Home Cards
+                container.innerHTML += `
+                    <div class="glassmorphism rounded-xl overflow-hidden border gold-border transition hover:border-[#d4af37] relative">
+                        <div class="relative h-40">
+                            <img src="${pkg.img}" alt="${pkg.title}" class="w-full h-full object-cover">
+                            <div class="absolute top-3 right-3 bg-[#09090b]/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold gold-text border gold-border">₹${Number(pkg.price).toLocaleString()} / Jeep</div>
+                        </div>
+                        <div class="p-4 space-y-2">
+                            <h4 class="luxury-font text-lg font-bold text-white">${pkg.title}</h4>
+                            <p class="text-xs text-zinc-400 line-clamp-2">${pkg.desc}</p>
+             
