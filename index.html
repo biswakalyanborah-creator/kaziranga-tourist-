@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borah Service - Ultra Premium Kaziranga Safari</title>
+    <title>Borah Service - Ultra Premium Kaziranga Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #0a1410;
-            --surface-dark: rgba(18, 38, 30, 0.75);
-            --border-glass: rgba(197, 160, 89, 0.25);
+            --bg-deep: #000000;
+            --surface-dark: #121212;
+            --border-color: #262626;
             --primary-gold: #c5a059;
-            --primary-gold-hover: #d4af37;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --accent-green: #10b981;
+            --text-main: #f5f5f5;
+            --text-muted: #a8a8a8;
+            --ig-blue: #0095f6;
+            --ig-red: #ff3040;
         }
 
         * {
@@ -26,21 +26,86 @@
 
         body {
             background-color: var(--bg-deep);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(197, 160, 89, 0.08) 0%, transparent 40%);
             color: var(--text-main);
             min-height: 100vh;
-            padding-bottom: 40px;
+            padding-bottom: 50px;
         }
 
-        /* High-End Glassmorphism Navbar */
+        /* ================= PREMIUM WELCOME INTRO SPLASH ================= */
+        #welcomeIntro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #0f2218 0%, #050d09 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .intro-emblem {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-gold);
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.95); box-shadow: 0 0 20px rgba(197, 160, 89, 0.3); }
+            100% { transform: scale(1.05); box-shadow: 0 0 40px rgba(197, 160, 89, 0.7); }
+        }
+
+        .intro-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .intro-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .enter-portal-btn {
+            background: linear-gradient(135deg, #c5a059, #dfbf7b);
+            color: #050d09;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+            transition: 0.3s;
+        }
+
+        .enter-portal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.6);
+        }
+
+        /* Top Header */
         nav {
-            background: rgba(10, 20, 16, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-glass);
-            padding: 16px 24px;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,469 +115,409 @@
         }
 
         .brand-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 800;
-            font-size: 18px;
+            font-weight: 700;
+            font-size: 17px;
             letter-spacing: 0.5px;
-            background: linear-gradient(135deg, #ffffff 30%, var(--primary-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #fff;
         }
 
         .nav-tabs {
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
 
         .tab-btn {
-            background: rgba(255, 255, 255, 0.04);
+            background: #262626;
             color: var(--text-muted);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 8px 16px;
-            border-radius: 30px;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 13px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 11px;
+            transition: 0.2s;
         }
 
         .tab-btn.active, .tab-btn:hover {
-            background: linear-gradient(135deg, var(--primary-gold), #b38f45);
-            color: #0a1410;
-            border-color: transparent;
-            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
-            transform: translateY(-1px);
+            background: var(--primary-gold);
+            color: #000;
         }
 
         /* Container */
         .main-container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0;
         }
 
-        /* Cinematic Hero Banner */
-        .hero-banner {
-            background: linear-gradient(180deg, rgba(10, 20, 16, 0.4) 0%, rgba(10, 20, 16, 0.9) 100%), 
-                        url('https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=1400&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: 24px;
-            border: 1px solid var(--border-glass);
-            padding: 55px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            margin-bottom: 30px;
-        }
-
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(10,20,16,0.85) 90%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .owner-avatar-container {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 16px auto;
-        }
-
-        .owner-avatar {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 3px solid var(--primary-gold);
-            object-fit: cover;
-            box-shadow: 0 0 30px rgba(197, 160, 89, 0.5);
-        }
-
-        .hero-banner h1 {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-            color: #fff;
-        }
-
-        .hero-banner p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 4px;
-        }
-
-        .owner-contact-tag {
-            display: inline-block;
-            background: rgba(197, 160, 89, 0.15);
-            border: 1px solid var(--border-glass);
-            color: var(--primary-gold);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-            margin-top: 8px;
-        }
-
-        .whatsapp-glow-btn {
-            background: linear-gradient(135deg, #25d366, #128c7e);
-            color: white;
-            padding: 12px 28px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 20px;
-            font-size: 14px;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-glow-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
-        }
-
-        /* Glass Panels */
-        .page-section { display: none; }
-        .page-section.active { display: block; animation: fadeIn 0.4s ease; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .glass-panel {
+        /* Instagram Stories Bar */
+        .stories-bar {
+            display: flex;
+            gap: 12px;
+            padding: 12px 16px;
             background: var(--surface-dark);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 28px;
-            margin-bottom: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            border-bottom: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+        .stories-bar::-webkit-scrollbar { display: none; }
+
+        .story-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            flex-shrink: 0;
         }
 
-        .glass-panel h3 {
-            color: var(--primary-gold);
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        .story-ring {
+            width: 66px;
+            height: 66px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            object-fit: cover;
+        }
+
+        .story-name {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            max-width: 68px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        /* Sections */
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+
+        /* Instagram Feed Post Card */
+        .ig-post {
+            background: var(--surface-dark);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 12px;
+        }
+
+        .ig-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+        }
+
+        .ig-user-info {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        /* Tourist Range Cards */
-        .range-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-left: 4px solid var(--primary-gold);
-            padding: 18px;
-            border-radius: 14px;
-            margin-bottom: 16px;
-            transition: 0.3s;
+        .ig-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--primary-gold);
         }
 
-        .range-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(197, 160, 89, 0.4);
-        }
-
-        .range-card h4 {
-            color: #fff;
-            font-size: 16px;
-            margin-bottom: 6px;
-        }
-
-        .range-card p {
-            color: var(--text-muted);
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        /* Form & Inputs */
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
+        .ig-username {
             font-size: 13px;
             font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 8px;
-        }
-
-        select, input, textarea {
-            width: 100%;
-            background: rgba(10, 20, 16, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 12px;
-            padding: 12px 16px;
             color: #fff;
-            font-size: 13px;
-            outline: none;
-            transition: 0.3s;
         }
 
-        select:focus, input:focus, textarea:focus {
-            border-color: var(--primary-gold);
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
+        .ig-location {
+            font-size: 11px;
+            color: var(--text-muted);
         }
 
-        .btn-group {
-            display: flex;
-            gap: 12px;
-        }
-
-        .premium-btn {
-            background: linear-gradient(135deg, var(--primary-gold), #b38f45);
-            color: #0a1410;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 13px;
-            cursor: pointer;
-            flex: 1;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
-        }
-
-        .premium-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-1px);
-        }
-
-        .btn-reel { background: linear-gradient(135deg, #f43f5e, #be123c); color: #fff; box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3); }
-        .btn-gallery { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #fff; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
-
-        /* Feed Posts */
-        .feed-post {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 20px;
-            border-radius: 16px;
-            margin-top: 18px;
-        }
-
-        .media-preview-box {
-            background: radial-gradient(circle, #1a2e26 0%, #0d1a15 100%);
-            border: 1px dashed rgba(197, 160, 89, 0.3);
-            height: 190px;
-            border-radius: 12px;
+        .ig-media-box {
+            width: 100%;
+            height: 360px;
+            background: #1a1a1a;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary-gold);
             font-size: 13px;
-            font-weight: 600;
-            margin-top: 12px;
             text-align: center;
             padding: 0 20px;
+            font-weight: 600;
+            background-size: cover;
+            background-position: center;
         }
 
-        /* AI Chatbot Styles */
-        .chat-wrapper {
-            background: rgba(10, 20, 16, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 16px;
+        .ig-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 14px 4px 14px;
         }
 
-        .chat-display {
-            height: 250px;
-            overflow-y: auto;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+        .ig-actions-left {
+            display: flex;
+            gap: 16px;
+        }
+
+        .ig-icon-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .ig-icon-btn:hover { color: var(--ig-red); }
+
+        .ig-likes-count {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 0 14px;
+            margin-bottom: 6px;
+        }
+
+        .ig-caption {
+            font-size: 12px;
+            padding: 0 14px 12px 14px;
+            line-height: 1.4;
+            color: #f1f1f1;
+        }
+
+        .ig-caption span {
+            font-weight: 600;
+            color: #fff;
+            margin-right: 6px;
+        }
+
+        /* Upload Panel */
+        .upload-panel {
+            background: var(--surface-dark);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 14px;
-            background: rgba(5, 10, 8, 0.6);
-            margin-bottom: 14px;
+            padding: 16px;
+            margin: 15px;
+        }
+
+        .upload-panel h3 {
+            color: var(--primary-gold);
+            font-size: 15px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 6px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            background: #1e1e1e;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px;
+            color: #fff;
+            font-size: 12px;
+            outline: none;
+        }
+
+        select:focus, input:focus, textarea:focus {
+            border-color: var(--primary-gold);
+        }
+
+        .ig-submit-btn {
+            background: var(--ig-blue);
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .content-card {
+            background: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 15px;
+        }
+        .content-card h3 { color: var(--primary-gold); font-size: 15px; margin-bottom: 10px; }
+        .content-card p { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
+
+        .chat-box {
+            height: 220px;
+            overflow-y: auto;
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 8px;
+            font-size: 12px;
         }
-
-        .chat-bubble {
-            max-width: 85%;
-            padding: 10px 16px;
-            border-radius: 14px;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        .chat-bubble.bot {
-            background: rgba(16, 185, 129, 0.15);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
-        .chat-bubble.user {
-            background: rgba(197, 160, 89, 0.2);
-            color: #fde047;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-        }
-
-        .chat-input-row {
-            display: flex;
-            gap: 10px;
-        }
+        .chat-msg { max-width: 85%; padding: 8px 12px; border-radius: 8px; line-height: 1.4; }
+        .chat-msg.bot { background: #1e3a2f; color: #34d399; align-self: flex-start; }
+        .chat-msg.user { background: #1e3a8a; color: #93c5fd; align-self: flex-end; }
     </style>
 </head>
 <body>
 
+    <!-- ================= PREMIUM WELCOME INTRO SCREEN ================= -->
+    <div id="welcomeIntro">
+        <img src="https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=250&q=80" alt="Borah Service" class="intro-emblem">
+        <div class="intro-title">🌿 Borah Service</div>
+        <div class="intro-subtitle">Kaziranga Luxury Safari & Wildlife Portal</div>
+        <button class="enter-portal-btn" onclick="closeIntro()">EXPLORE SAFARI ✨</button>
+    </div>
+
     <nav>
-        <div class="brand-logo">
-            <span>🌿</span> Borah Service
-        </div>
+        <div class="brand-logo">🌿 Borah Service</div>
         <div class="nav-tabs">
-            <button class="tab-btn active" onclick="switchTab('tab-home', this)">Home</button>
-            <button class="tab-btn" onclick="switchTab('tab-places', this)">Places</button>
-            <button class="tab-btn" onclick="switchTab('tab-tools', this)">Staff Tools</button>
-            <button class="tab-btn" onclick="switchTab('tab-ai', this)">AI Bot</button>
+            <button class="tab-btn active" onclick="switchTab('feed-tab', this)">Home</button>
+            <button class="tab-btn" onclick="switchTab('places-tab', this)">Places</button>
+            <button class="tab-btn" onclick="switchTab('upload-tab', this)">+ Post</button>
+            <button class="tab-btn" onclick="switchTab('chat-tab', this)">AI Bot</button>
         </div>
     </nav>
 
     <div class="main-container">
 
-        <!-- ================= HOME TAB ================= -->
-        <div id="tab-home" class="page-section active">
+        <!-- ================= HOME / INSTAGRAM FEED ================= -->
+        <div id="feed-tab" class="page-section active">
             
-            <div class="hero-banner">
-                <div class="hero-content">
-                    <div class="owner-avatar-container">
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80" alt="Somnath Borah" class="owner-avatar">
-                    </div>
-                    <h1>SOMNATH BORAH</h1>
-                    <p>Official Owner & Lead Expert Guide</p>
-                    <div class="owner-contact-tag">📞 Direct Helpline: +91 9101311494</div>
-                    <div>
-                        <a href="https://wa.me/919101311494?text=Hello%20Somnath%20Borah,%20I%20want%20to%20book%20a%20Kaziranga%20safari." class="whatsapp-glow-btn" target="_blank">
-                            💬 Connect on WhatsApp
-                        </a>
-                    </div>
+            <div class="stories-bar">
+                <div class="story-item">
+                    <div class="story-ring"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" class="story-img"></div>
+                    <span class="story-name">Somnath (Owner)</span>
+                </div>
+                <div class="story-item">
+                    <div class="story-ring"><img src="https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=150&q=80" class="story-img"></div>
+                    <span class="story-name">Kohora Zone</span>
+                </div>
+                <div class="story-item">
+                    <div class="story-ring"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="story-img"></div>
+                    <span class="story-name">Tourist Memory</span>
+                </div>
+                <div class="story-item">
+                    <div class="story-ring"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="story-img"></div>
+                    <span class="story-name">Bagori Range</span>
                 </div>
             </div>
 
-            <div class="glass-panel">
-                <h3>✨ Live Wildlife Feed & Gallery</h3>
-                <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">Real-time updates from Kaziranga National Park posted by our expert guides:</p>
+            <div id="igFeedContainer">
                 
-                <div id="feedStream">
-                    <div class="feed-post">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                            <span style="font-weight: 700; color: var(--primary-gold); font-size: 14px;">Somnath Borah (Owner)</span>
-                            <span style="font-size: 11px; color: var(--text-muted);">Kohora Range • Just now</span>
+                <div class="ig-post">
+                    <div class="ig-header">
+                        <div class="ig-user-info">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" class="ig-avatar">
+                            <div>
+                                <div class="ig-username">somnath_borah_official</div>
+                                <div class="ig-location">Kaziranga National Park - Kohora</div>
+                            </div>
                         </div>
-                        <p style="font-size: 13px; color: var(--text-main); line-align: 1.5;">Magnificent morning sighting of the One-Horned Rhinoceros at Central Range! Jeep safaris are running smooth today.</p>
-                        <div class="media-preview-box">
-                            🎥 Cinematic Wildlife Expedition Reel - Kaziranga Core Zone
+                        <span style="color: #a8a8a8; font-size: 16px;">•••</span>
+                    </div>
+                    <div class="ig-media-box" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;">
+                        🐘 Morning Jeep Safari Adventure & Rhino Sighting
+                    </div>
+                    <div class="ig-actions">
+                        <div class="ig-actions-left">
+                            <button class="ig-icon-btn" onclick="toggleLike(this)">🤍</button>
+                            <button class="ig-icon-btn">💬</button>
+                            <button class="ig-icon-btn">↗️</button>
                         </div>
+                        <button class="ig-icon-btn">🔖</button>
+                    </div>
+                    <div class="ig-likes-count">Liked by 1,424 tourists & others</div>
+                    <div class="ig-caption">
+                        <span>somnath_borah_official</span> Incredible wildlife moment at Central Range today! Book your slots with Borah Service. 🌿✨
                     </div>
                 </div>
+
             </div>
 
         </div>
 
         <!-- ================= PLACES TAB ================= -->
-        <div id="tab-places" class="page-section">
-            <div class="glass-panel">
-                <h3>🌲 Kaziranga National Park Ranges</h3>
-                <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Explore the four majestic tourism zones of the sanctuary:</p>
-
-                <div class="range-card">
-                    <h4>1. Central Range (Kohora)</h4>
-                    <p>The primary tourist hub featuring vast grasslands and wetlands. Perfect for spotting rhinos, elephants, wild boars, and swamp deer during jeep safaris.</p>
-                </div>
-
-                <div class="range-card">
-                    <h4>2. Western Range (Bagori)</h4>
-                    <p>Known for marshy tracts and rich aquatic plants. Excellent spot for observing wild water buffaloes and close encounters with rhinos.</p>
-                </div>
-
-                <div class="range-card">
-                    <h4>3. Eastern Range (Agoratoli)</h4>
-                    <p>A tranquil deep-forest area ideal for bird watchers, pelicans, migratory waterfowl, and serene landscape photography.</p>
-                </div>
-
-                <div class="range-card">
-                    <h4>4. Burapahar Range</h4>
-                    <p>Characterized by hilly terrains, dense tropical forests, and panoramic views along the Brahmaputra River banks.</p>
-                </div>
+        <div id="places-tab" class="page-section">
+            <div class="content-card">
+                <h3>🌲 Kaziranga Safari Ranges</h3>
+                <p><b>1. Central Range (Kohora):</b> Core zone with grasslands, best for One-Horned Rhino and elephant sightings.</p>
+                <p><b>2. Western Range (Bagori):</b> Marshy wetlands, ideal for wild water buffaloes and close rhino views.</p>
+                <p><b>3. Eastern Range (Agoratoli):</b> Deep forest area, best for bird watchers and photography.</p>
+                <p><b>4. Burapahar Range:</b> Hilly landscape along the Brahmaputra River.</p>
             </div>
         </div>
 
-        <!-- ================= STAFF TOOLS TAB ================= -->
-        <div id="tab-tools" class="page-section">
-            <div class="glass-panel">
-                <h3>🛠️ Verified Staff & Owner Publisher</h3>
-                <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Secure administrative control panel to instantly broadcast reels and media to the live feed:</p>
+        <!-- ================= UPLOAD TAB ================= -->
+        <div id="upload-tab" class="page-section">
+            <div class="upload-panel">
+                <h3>📸 Upload Memories & Safari Post</h3>
+                <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">Owner, employees ya tourist yahan apni best memories aur photos upload kar sakte hain:</p>
 
                 <div class="form-group">
-                    <label>Select Authorized Profile:</label>
-                    <select id="staffRole">
+                    <label>Posted By (Role / Name):</label>
+                    <select id="postAuthor">
                         <option value="Somnath Borah (Owner)">Somnath Borah (Owner)</option>
-                        <option value="Rajib Borah (Guide & Expert)">Rajib Borah (Guide & Expert)</option>
-                        <option value="Bikash Das (Safari Driver)">Bikash Das (Safari Driver)</option>
+                        <option value="Rajib Borah (Guide)">Rajib Borah (Guide)</option>
+                        <option value="Bikash Das (Driver)">Bikash Das (Driver)</option>
+                        <option value="Happy Tourist Guest">Happy Tourist Guest</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Post Description / Safari Update:</label>
-                    <textarea id="postText" rows="3" placeholder="Write details about wildlife sighting or safari schedules..."></textarea>
+                    <label>Location / Range:</label>
+                    <input type="text" id="postLocation" placeholder="e.g. Kohora Range, Kaziranga">
                 </div>
 
                 <div class="form-group">
-                    <label>Media Asset Link / Video URL:</label>
-                    <input type="text" id="mediaLink" placeholder="Paste link or media identifier...">
+                    <label>Caption / Memory details:</label>
+                    <textarea id="postCaption" rows="3" placeholder="Write about your wonderful safari experience..."></textarea>
                 </div>
 
-                <div class="btn-group">
-                    <button class="premium-btn btn-reel" onclick="publishContent('Reel')">🎬 Publish Reel</button>
-                    <button class="premium-btn btn-gallery" onclick="publishContent('Gallery')">🖼️ Add Gallery Media</button>
+                <div class="form-group">
+                    <label>Photo URL / Asset link:</label>
+                    <input type="text" id="postImage" placeholder="Paste image link or leave blank for default...">
                 </div>
 
-                <div style="margin-top: 20px; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2); padding: 12px; border-radius: 10px; font-size: 12px; color: #fcd34d;">
-                    🔒 <strong>Secure Broadcast:</strong> Published content will immediately appear on the Home Feed for all incoming tourists.
-                </div>
+                <button class="ig-submit-btn" onclick="addNewPost()">Share to Feed 🚀</button>
             </div>
         </div>
 
-        <!-- ================= AI ASSISTANT TAB ================= -->
-        <div id="tab-ai" class="page-section">
-            <div class="glass-panel">
-                <h3>💬 Kaziranga AI Customer Assistant Bot</h3>
-                <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 15px;">Ask questions instantly regarding jeep safari timings, booking queries, or park ranges:</p>
-
-                <div class="chat-wrapper">
-                    <div id="chatDisplay" class="chat-display">
-                        <div class="chat-bubble bot">
-                            Namaste! Main Borah Service ka AI Assistant hoon. Main aapki Kaziranga Safari booking, timings aur tourist ranges ke baare mein kya madad kar sakta hoon?
-                        </div>
-                    </div>
-                    <div class="chat-input-row">
-                        <input type="text" id="chatInput" placeholder="Yahan apna sawaal likhein (jaise: Timing kya hai?)..." onkeypress="checkEnter(event)">
-                        <button class="premium-btn" style="flex: 0 0 100px; padding: 10px;" onclick="sendBotMessage()">Bhejo</button>
-                    </div>
+        <!-- ================= AI CHATBOT TAB ================= -->
+        <div id="chat-tab" class="page-section">
+            <div class="content-card">
+                <h3>💬 AI Customer Service Bot</h3>
+                <div id="chatBox" class="chat-box">
+                    <div class="chat-msg bot">Namaste! Main Borah Service ka AI Assistant hoon. Safari timing ya booking ke liye kya sahayata chahiye?</div>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="chatInput" placeholder="Sawaal likhein..." onkeypress="checkEnter(event)">
+                    <button class="ig-submit-btn" style="width: 80px;" onclick="sendBotMsg()">Bhejo</button>
                 </div>
             </div>
         </div>
@@ -520,93 +525,46 @@
     </div>
 
     <script>
+        function closeIntro() {
+            let intro = document.getElementById('welcomeIntro');
+            intro.style.opacity = '0';
+            setTimeout(() => {
+                intro.style.display = 'none';
+            }, 800);
+        }
+
+        // Auto close intro after 3.5 seconds if user doesn't click
+        setTimeout(() => {
+            let intro = document.getElementById('welcomeIntro');
+            if(intro && intro.style.display !== 'none') {
+                closeIntro();
+            }
+        }, 3500);
+
         function switchTab(tabId, btnElement) {
             document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-
             document.getElementById(tabId).classList.add('active');
             btnElement.classList.add('active');
         }
 
-        function publishContent(type) {
-            let role = document.getElementById('staffRole').value;
-            let text = document.getElementById('postText').value.trim();
-            let link = document.getElementById('mediaLink').value.trim();
+        function toggleLike(btn) {
+            if(btn.innerText === '🤍') {
+                btn.innerText = '❤️';
+            } else {
+                btn.innerText = '🤍';
+            }
+        }
 
-            if(!text) {
-                alert('Please enter a caption or description for your post.');
+        function addNewPost() {
+            let author = document.getElementById('postAuthor').value;
+            let location = document.getElementById('postLocation').value || 'Kaziranga National Park';
+            let caption = document.getElementById('postCaption').value.trim();
+            let img = document.getElementById('postImage').value.trim();
+
+            if(!caption) {
+                alert('Please write a caption for your post.');
                 return;
             }
 
-            let feedStream = document.getElementById('feedStream');
-            let newPost = document.createElement('div');
-            newPost.className = 'feed-post';
-
-            let badgeName = type === 'Reel' ? '🎬 Published Cinematic Reel' : '🖼️ Gallery Media Added';
-
-            newPost.innerHTML = `
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                    <span style="font-weight: 700; color: var(--primary-gold); font-size: 14px;">${role}</span>
-                    <span style="font-size: 11px; color: var(--text-muted);">Just now</span>
-                </div>
-                <p style="font-size: 13px; color: var(--text-main); line-height: 1.5;">${text}</p>
-                <div class="media-preview-box">
-                    ${badgeName}: ${link ? link.substring(0, 30) + '...' : 'Kaziranga Wildlife Asset'}
-                </div>
-            `;
-
-            feedStream.prepend(newPost);
-            document.getElementById('postText').value = '';
-            document.getElementById('mediaLink').value = '';
-            alert(type + ' successfully published by ' + role + '!');
-            
-            switchTab('tab-home', document.querySelector('.tab-btn'));
-        }
-
-        // AI Assistant Chatbot Logic
-        function checkEnter(e) {
-            if(e.key === 'Enter') {
-                sendBotMessage();
-            }
-        }
-
-        function sendBotMessage() {
-            let input = document.getElementById('chatInput');
-            let query = input.value.trim();
-            if(!query) return;
-
-            let display = document.getElementById('chatDisplay');
-
-            // Append User Message
-            let userBubble = document.createElement('div');
-            userBubble.className = 'chat-bubble user';
-            userBubble.innerText = query;
-            display.appendChild(userBubble);
-
-            input.value = '';
-            display.scrollTop = display.scrollHeight;
-
-            // Generate Smart Bot Response
-            setTimeout(() => {
-                let botBubble = document.createElement('div');
-                botBubble.className = 'chat-bubble bot';
-
-                let q = query.toLowerCase();
-                if(q.includes('timing') || q.includes('time') || q.includes('samay')) {
-                    botBubble.innerText = "Jeep Safari ka standard timing subah 7:30 AM se 9:30 AM aur dopahar 1:30 PM se 3:30 PM tak hota hai.";
-                } else if(q.includes('book') || q.includes('price') || q.includes('cost') || q.includes('fee')) {
-                    botBubble.innerText = "Safari booking aur pricing ki direct jaankari ke liye aap upar diye gaye 'Connect on WhatsApp' button par click karke Somnath Borah ji se baat kar sakte hain (+91 9101311494).";
-                } else if(q.includes('range') || q.includes('place') || q.includes('kohora') || q.includes('zone')) {
-                    botBubble.innerText = "Kaziranga mein 4 main zones hain: Central (Kohora), Western (Bagori), Eastern (Agoratoli), aur Burapahar. Aap 'Places' tab mein detail padh sakte hain.";
-                } else {
-                    botBubble.innerText = "Aapke sawaal ke liye shukriya! Iski turant sahayata ke liye aap humein WhatsApp par direct message kar sakte hain: +91 9101311494.";
-                }
-
-                display.appendChild(botBubble);
-                display.scrollTop = display.scrollHeight;
-            }, 500);
-        }
-    </script>
-
-</body>
-</html>
+            let container = document.getElementById('igFeedC
