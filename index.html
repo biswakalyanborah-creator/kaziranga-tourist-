@@ -424,5 +424,148 @@
         </div>
 
         <!-- OWNER / PROFILE PANEL -->
-        <div id="
-            
+        <div id="panel-profile" class="page-panel">
+            <div class="profile-card">
+                <div class="profile-avatar-container">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" 
+                         class="profile-avatar" id="adminProfileImg" alt="Somnath Borah">
+                </div>
+                <div class="profile-name">Somnath Borah</div>
+                <div class="profile-role">Founder & Lead Operator</div>
+                <div class="profile-bio">
+                    Dedicated to providing world-class, safe, and memorable wildlife expedition experiences across all ranges of Kaziranga National Park with verified government-registered guides.
+                </div>
+                
+                <div style="text-align: left; margin-bottom: 15px;">
+                    <b style="font-size: 12px; color: var(--primary);">Our Expert Team & Guides:</b>
+                    <div class="employee-list" id="employeeDisplayList">
+                        <!-- Employees load here -->
+                    </div>
+                </div>
+
+                <div class="social-buttons">
+                    <a href="https://www.facebook.com/share/19UHXExMDK/" target="_blank" class="btn-social btn-fb">🌐 Facebook</a>
+                    <a href="https://wa.me/919101311494" target="_blank" class="btn-social btn-wa">💬 WhatsApp Support</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <nav class="bottom-nav">
+        <button class="nav-btn active" onclick="switchTab('home', this)">
+            <span class="icon">🏠</span>
+            <span>Home</span>
+        </button>
+        <button class="nav-btn" onclick="switchTab('booking', this)">
+            <span class="icon">🎟️</span>
+            <span>Booking</span>
+        </button>
+        <button class="nav-btn" onclick="switchTab('admin', this)">
+            <span class="icon">⚙️</span>
+            <span>Admin</span>
+        </button>
+        <button class="nav-btn" onclick="switchTab('profile', this)">
+            <span class="icon">👤</span>
+            <span>Owner</span>
+        </button>
+    </nav>
+
+    <script>
+        const packagesData = [
+            {
+                title: "Kohora Central Range",
+                price: "₹3,500 / Jeep",
+                desc: "The heart of Kaziranga. High density of Great Indian Rhinos and scenic grassland views.",
+                img: "https://images.unsplash.com/photo-1534178631360-155e9de45688?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Bagori Western Range",
+                price: "₹3,500 / Jeep",
+                desc: "Famous for close-range rhino sightings, water buffaloes, and beautiful wetlands.",
+                img: "https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                title: "Agoratoli Eastern Range",
+                price: "₹3,800 / Jeep",
+                desc: "Best for bird watchers, wild elephants, and serene deep forest landscapes.",
+                img: "https://images.unsplash.com/photo-1534178631360-155e9de45688?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        const employeesData = [
+            { name: "Rahul Borah", role: "Senior Guide - 9101000000" },
+            { name: "Bikash Saikia", role: "Jeep Driver & Naturalist" }
+        ];
+
+        function renderPackages() {
+            const container = document.getElementById('dynamicPackagesContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            packagesData.forEach(pkg => {
+                container.innerHTML += `
+                    <div class="pkg-card">
+                        <img src="${pkg.img}" class="pkg-img" onerror="this.src='https://images.unsplash.com/photo-1564760055775-d63b19a55388?auto=format&fit=crop&w=600&q=80'">
+                        <div class="pkg-body">
+                            <div class="pkg-title">${pkg.title}</div>
+                            <div class="pkg-desc">${pkg.desc}</div>
+                            <div class="pkg-footer">
+                                <div class="pkg-price">${pkg.price}</div>
+                                <button class="btn-gold" onclick="selectSafari('${pkg.title}')">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderEmployees() {
+            const list = document.getElementById('employeeDisplayList');
+            if (!list) return;
+            list.innerHTML = '';
+            employeesData.forEach(emp => {
+                list.innerHTML += `<div class="employee-item"><span>${emp.name} (${emp.role})</span><span>Active</span></div>`;
+            });
+        }
+
+        function addNewPackage() {
+            const titleInput = document.getElementById('admTitle');
+            const priceInput = document.getElementById('admPrice');
+            const descInput = document.getElementById('admDesc');
+            const imgInput = document.getElementById('admImg');
+
+            if (!titleInput || !priceInput) return;
+
+            const title = titleInput.value.trim();
+            const price = priceInput.value.trim();
+            const desc = descInput ? descInput.value.trim() : '';
+            const img = imgInput ? imgInput.value.trim() : '';
+
+            if (!title || !price) {
+                alert('Kripya Package Title aur Price bharein.');
+                return;
+            }
+
+            packagesData.unshift({
+                title: title,
+                price: price,
+                desc: desc || 'Exciting wildlife safari tour slot.',
+                img: img || 'https://images.unsplash.com/photo-1534178631360-155e9de45688?auto=format&fit=crop&w=600&q=80'
+            });
+
+            renderPackages();
+            alert('Package successfully added!');
+            switchTab('home', document.querySelectorAll('.nav-btn')[0]);
+        }
+
+        function addEmployee() {
+            const nameInput = document.getElementById('empName');
+            const roleInput = document.getElementById('empRole');
+
+            if (!nameInput || !roleInput) return;
+
+            const name = nameInput.value.trim();
+            const role = roleInput.value.trim();
+
+            if (!name || !role) {
+                alert('Kripya Employee Name aur Role/Phon
