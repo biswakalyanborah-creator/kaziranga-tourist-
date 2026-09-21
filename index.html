@@ -3,67 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borah Service - Kaziranga Tourist Service</title>
+    <title>Borah Service - Kaziranga Tourist & Jepsy Safari Service</title>
     <style>
+        :root {
+            --primary: #1b4d3e;
+            --secondary: #2c5e3b;
+            --accent: #ffc107;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
         header {
-            background: #2c5e3b;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 20px;
+            padding: 60px 20px;
             text-align: center;
         }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
+        header h1 {
+            font-size: 2.5rem;
             margin-bottom: 10px;
+            color: #fff;
         }
-        .section {
+        header p {
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 25px;
         }
-        .animals-grid {
+        h2, h3 {
+            color: var(--primary);
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        /* Profile & Certificate Section */
+        .profile-container {
             display: flex;
-            justify-content: space-around;
-            gap: 15px;
             flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        .profile-img-box, .cert-img-box {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px dashed #ccc;
+        }
+        .profile-img-box img, .cert-img-box img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            margin-bottom: 10px;
+        }
+        .cert-img-box img {
+            width: 100%;
+            height: 180px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+        /* Animals Grid */
+        .animals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
         }
         .animal-card {
             background: #eaf2ed;
             padding: 15px;
-            border-radius: 5px;
-            width: 25%;
+            border-radius: 8px;
             text-align: center;
             border: 1px solid #c2d5cb;
         }
-        .admin-box {
-            background: #fff3cd;
-            border: 1px solid #ffeeba;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
+        /* Pricing Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
         }
-        .btn {
-            background: #2c5e3b;
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--primary);
             color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
         }
-        .btn:hover {
-            background: #1e3f26;
+        /* Buttons */
+        .btn-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+        .whatsapp-btn:hover {
+            background: #1ebe57;
+        }
+        .admin-box {
+            background: #fff8e1;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 0.95rem;
         }
     </style>
 </head>
@@ -71,47 +146,87 @@
 
     <header>
         <h1>Welcome to Borah Service</h1>
-        <p>Your Ultimate Gateway to Kaziranga Tourist & Jeep Safari Service</p>
+        <p>Kaziranga Tourist & Jepsy Safari Service</p>
     </header>
 
     <div class="container">
-        <!-- Introduction Section -->
-        <div class="section">
-            <h2>Experience the Wild with Jepsy Safari Service</h2>
-            <p>Explore the rich wildlife and breathtaking landscapes of Kaziranga National Park with our expert jeep safari packages. Safe, secure, and memorable rides guaranteed.</p>
+        
+        <!-- About Experience -->
+        <div class="card">
+            <h2>Explore Kaziranga National Park</h2>
+            <p>Experience the ultimate wildlife adventure with our expert <strong>Jepsy Safari Service</strong>. Get close views of the One-Horned Rhinoceros, majestic tigers, and lush green landscapes safely and comfortably.</p>
+            <div class="btn-container">
+                <a href="https://wa.me/919101311494?text=Hello%20Somnath%20Borah,%20I%20want%20to%20book%20a%20Kaziranga%20Safari." class="whatsapp-btn" target="_blank">💬 Book via WhatsApp</a>
+            </div>
         </div>
 
-        <!-- Kaziranga Animals Section -->
-        <div class="section">
-            <h3>Kaziranga Wildlife Highlights</h3>
-            <div class="animals-grid">
-                <div class="animal-card">
-                    <h4>One-Horned Rhino</h4>
-                    <p>The pride of Kaziranga.</p>
+        <!-- Owner & Guide Certificate Proof Section -->
+        <div class="card">
+            <h2>Owner & Authorized Guide Profile</h2>
+            <div class="profile-container">
+                <!-- Owner Photo Box -->
+                <div class="profile-img-box">
+                    <!-- Yahan src mein owner ki real photo ka link ya filename daal sakte hain -->
+                    <img src="https://via.placeholder.com/150" alt="Somnath Borah Photo">
+                    <h3>SOMNATH BORAH</h3>
+                    <p><strong>Owner & Lead Guide</strong></p>
+                    <p>📞 +91 9101311494</p>
                 </div>
-                <div class="animal-card">
-                    <h4>Royal Bengal Tiger</h4>
-                    <p>Majestic predator of the grasslands.</p>
-                </div>
-                <div class="animal-card">
-                    <h4>Wild Elephants</h4>
-                    <p>Frequently seen in herds.</p>
+                <!-- Certificate Proof Box -->
+                <div class="cert-img-box">
+                    <!-- Yahan src mein guide license / certificate ki image ka link daal sakte hain -->
+                    <img src="https://via.placeholder.com/300x180?text=Official+Guide+Certificate" alt="Tourist Guide Certificate">
+                    <p><strong>Government Approved Guide License / Certificate Proof</strong></p>
                 </div>
             </div>
         </div>
 
-        <!-- Booking / Action Section -->
-        <div class="section" style="text-align: center;">
-            <button class="btn" onclick="alert('Booking request initialized!')">Book Safari Now</button>
+        <!-- Safari Timings & Pricing -->
+        <div class="card">
+            <h2>Safari Timings & Packages</h2>
+            <table>
+                <tr>
+                    <th>Safari Type</th>
+                    <th>Timing Slots</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Jeep Safari (Central/Western Range)</td>
+                    <td>Morning: 7:30 AM - 9:30 AM <br>Evening: 1:30 PM - 3:30 PM</td>
+                    <td>Available ✅</td>
+                </tr>
+                <tr>
+                    <td>Elephant Safari</td>
+                    <td>Early Morning Slots</td>
+                    <td>Available ✅</td>
+                </tr>
+            </table>
         </div>
 
-        <!-- Owner / Admin Details Section -->
-        <div class="admin-box">
-            <h3>Official Owner Details</h3>
-            <p><strong>Admin Name:</strong> SOMNATH BORAH</p>
-            <p><strong>Contact Number:</strong> +91 9101311494</p>
-            <p><small>* Note: Any changes to this account/service require user contact OTP verification.</small></p>
+        <!-- Wildlife Highlights -->
+        <div class="card">
+            <h2>Kaziranga Wildlife Highlights</h2>
+            <div class="animals-grid">
+                <div class="animal-card">
+                    <h4>One-Horned Rhino</h4>
+                    <p>World-famous attraction of Assam.</p>
+                </div>
+                <div class="animal-card">
+                    <h4>Royal Bengal Tiger</h4>
+                    <p>The majestic predator.</p>
+                </div>
+                <div class="animal-card">
+                    <h4>Wild Elephants</h4>
+                    <p>Found roaming freely.</p>
+                </div>
+            </div>
         </div>
+
+        <!-- Security / Admin Note -->
+        <div class="admin-box">
+            <p><strong>Security Notice:</strong> Official Admin Account managed by <strong>SOMNATH BORAH</strong> (+91 9101311494). Any major updates or modifications to service parameters strictly require user contact OTP verification.</p>
+        </div>
+
     </div>
 
 </body>
