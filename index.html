@@ -6,228 +6,300 @@
     <title>Borah Service - Kaziranga Tourist & Jepsy Safari Service</title>
     <style>
         :root {
-            --primary: #1b4d3e;
-            --secondary: #2c5e3b;
-            --accent: #ffc107;
-            --bg-color: #f4f7f6;
-            --text-color: #333;
+            --fb-bg: #f0f2f5;
+            --fb-header: #ffffff;
+            --fb-primary: #1877f2;
+            --fb-primary-hover: #166fe5;
+            --fb-text: #050505;
+            --fb-secondary-text: #65676b;
+            --fb-border: #ccd0d5;
+            --card-bg: #ffffff;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: var(--fb-bg);
+            color: var(--fb-text);
         }
-        header {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
+        /* Top Navigation Bar */
+        nav {
+            background-color: var(--fb-header);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #fff;
+        nav h2 {
+            margin: 0;
+            color: var(--fb-primary);
+            font-size: 24px;
         }
-        header p {
-            font-size: 1.2rem;
-            color: #ddd;
+        .nav-right {
+            font-size: 14px;
+            background: #e4e6eb;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
         }
+        /* Main Layout */
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 20px auto;
             padding: 0 15px;
         }
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
+        /* Card Style (Facebook Post Box) */
+        .fb-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--fb-border);
         }
-        h2, h3 {
-            color: var(--primary);
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 8px;
+        .fb-card h3 {
             margin-top: 0;
+            color: var(--fb-primary);
+            border-bottom: 1px solid #e4e6eb;
+            padding-bottom: 8px;
         }
-        /* Profile & Certificate Section */
-        .profile-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: center;
+        /* Places Grid */
+        .place-item {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f2f5;
         }
-        .profile-img-box, .cert-img-box {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            background: #fafafa;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px dashed #ccc;
+        .place-item h4 {
+            margin: 0 0 5px 0;
+            color: #333;
         }
-        .profile-img-box img, .cert-img-box img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-            margin-bottom: 10px;
+        .place-item p {
+            margin: 0;
+            color: var(--fb-secondary-text);
+            font-size: 14px;
         }
-        .cert-img-box img {
+        /* Admin / Employee Post Creator */
+        .post-input {
             width: 100%;
-            height: 180px;
+            padding: 10px;
+            border: 1px solid var(--fb-border);
+            border-radius: 20px;
+            background: #f0f2f5;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .btn {
+            background-color: var(--fb-primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
             border-radius: 6px;
-            object-fit: cover;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
         }
-        /* Animals Grid */
-        .animals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+        .btn:hover {
+            background-color: var(--fb-primary-hover);
         }
-        .animal-card {
-            background: #eaf2ed;
-            padding: 15px;
+        /* Feed Stream */
+        .feed-post {
+            background: #fff;
+            border: 1px solid var(--fb-border);
             border-radius: 8px;
-            text-align: center;
-            border: 1px solid #c2d5cb;
+            padding: 12px;
+            margin-top: 10px;
         }
-        /* Pricing Table */
+        .feed-author {
+            font-weight: bold;
+            color: #050505;
+        }
+        .feed-time {
+            font-size: 12px;
+            color: var(--fb-secondary-text);
+        }
+        .feed-content {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+        .media-preview {
+            width: 100%;
+            height: 200px;
+            background: #e4e6eb;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--fb-secondary-text);
+            font-weight: bold;
+        }
+        /* Table Style */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin-top: 10px;
         }
         th, td {
-            padding: 12px;
+            padding: 10px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid var(--fb-border);
+            font-size: 14px;
         }
         th {
-            background-color: var(--primary);
-            color: white;
+            background-color: #f0f2f5;
         }
-        /* Buttons */
-        .btn-container {
+        .whatsapp-float {
             text-align: center;
             margin: 20px 0;
         }
         .whatsapp-btn {
             background: #25d366;
             color: white;
-            padding: 12px 25px;
+            padding: 12px 20px;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 25px;
             font-weight: bold;
-            font-size: 1.1rem;
             display: inline-block;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-        }
-        .whatsapp-btn:hover {
-            background: #1ebe57;
-        }
-        .admin-box {
-            background: #fff8e1;
-            border-left: 5px solid #ffc107;
-            padding: 15px;
-            border-radius: 4px;
-            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to Borah Service</h1>
-        <p>Kaziranga Tourist & Jepsy Safari Service</p>
-    </header>
+    <!-- Facebook Style Header -->
+    <nav>
+        <h2>Borah Service</h2>
+        <div class="nav-right">👑 Admin: Somnath Borah</div>
+    </nav>
 
     <div class="container">
-        
-        <!-- About Experience -->
-        <div class="card">
-            <h2>Explore Kaziranga National Park</h2>
-            <p>Experience the ultimate wildlife adventure with our expert <strong>Jepsy Safari Service</strong>. Get close views of the One-Horned Rhinoceros, majestic tigers, and lush green landscapes safely and comfortably.</p>
-            <div class="btn-container">
-                <a href="https://wa.me/919101311494?text=Hello%20Somnath%20Borah,%20I%20want%20to%20book%20a%20Kaziranga%20Safari." class="whatsapp-btn" target="_blank">💬 Book via WhatsApp</a>
+
+        <!-- Welcome Banner Card -->
+        <div class="fb-card" style="text-align: center; background: linear-gradient(135deg, #1877f2, #2c5e3b); color: white;">
+            <h1 style="margin: 5px 0; font-size: 26px;">Kaziranga Tourist & Jepsy Safari Service</h1>
+            <p style="margin: 5px 0;">Official Platform managed by Somnath Borah (+91 9101311494)</p>
+            <div class="whatsapp-float">
+                <a href="https://wa.me/919101311494?text=Hello%20Somnath%20Borah,%20I%20want%20to%20book%20a%20safari." class="whatsapp-btn" target="_blank">💬 Chat & Book on WhatsApp</a>
             </div>
         </div>
 
-        <!-- Owner & Guide Certificate Proof Section -->
-        <div class="card">
-            <h2>Owner & Authorized Guide Profile</h2>
-            <div class="profile-container">
-                <!-- Owner Photo Box -->
-                <div class="profile-img-box">
-                    <!-- Yahan src mein owner ki real photo ka link ya filename daal sakte hain -->
-                    <img src="https://via.placeholder.com/150" alt="Somnath Borah Photo">
-                    <h3>SOMNATH BORAH</h3>
-                    <p><strong>Owner & Lead Guide</strong></p>
-                    <p>📞 +91 9101311494</p>
-                </div>
-                <!-- Certificate Proof Box -->
-                <div class="cert-img-box">
-                    <!-- Yahan src mein guide license / certificate ki image ka link daal sakte hain -->
-                    <img src="https://via.placeholder.com/300x180?text=Official+Guide+Certificate" alt="Tourist Guide Certificate">
-                    <p><strong>Government Approved Guide License / Certificate Proof</strong></p>
-                </div>
+        <!-- Kaziranga Tourist Places & Explanations -->
+        <div class="fb-card">
+            <h3>🌲 Kaziranga Tourist Places & Ranges</h3>
+            <div class="place-item">
+                <h4>1. Central Range (Kohora)</h4>
+                <p>The prime zone for jeep safaris. Known for high concentrations of One-Horned Rhinoceros, wild elephants, and swamp deer against a backdrop of beautiful grasslands.</p>
+            </div>
+            <div class="place-item">
+                <h4>2. Western Range (Bagori)</h4>
+                <p>Famous for close-up sightings of rhinos and water buffaloes. Features picturesque water bodies and rich birdwatching spots.</p>
+            </div>
+            <div class="place-item">
+                <h4>3. Eastern Range (Agoratoli)</h4>
+                <p>Best for bird lovers and wild water buffaloes. It offers deep wilderness, wetlands, and a quiet, peaceful safari experience.</p>
+            </div>
+            <div class="place-item">
+                <h4>4. Burapahar Range</h4>
+                <p>Hilly terrain ideal for trekking and adventurous jeep rides, offering magnificent views of the Brahmaputra river valleys.</p>
             </div>
         </div>
 
-        <!-- Safari Timings & Pricing -->
-        <div class="card">
-            <h2>Safari Timings & Packages</h2>
+        <!-- Owner & Employee Live Posting Feed (Facebook Style) -->
+        <div class="fb-card">
+            <h3>📝 Create Feed / Post Photo, Video & Reels</h3>
+            <p style="font-size: 13px; color: #65676b;">Owner or Employees can share updates, tourist captures, or safari reels here:</p>
+            <input type="text" class="post-input" placeholder="What's happening on today's safari? (Write caption)..." id="postText">
+            <input type="text" class="post-input" placeholder="Paste Photo or Reel/Video Link here..." id="postMedia">
+            <button class="btn" onclick="publishPost()">Post to Feed</button>
+        </div>
+
+        <!-- Dynamic Live Feed Stream -->
+        <div id="feedStream">
+            <div class="feed-post">
+                <div class="feed-author">Somnath Borah (Admin) <span class="feed-time">• Just now</span></div>
+                <div class="feed-content">Welcome everyone to Kaziranga Tourist Service! Morning safari slots are open now. Book your rides with us for a safe experience.</div>
+                <div class="media-preview">📸 Safari Morning View & Rhinos Captured</div>
+            </div>
+        </div>
+
+        <!-- Safari Date, Time & Schedule Control Panel -->
+        <div class="fb-card">
+            <h3>⚙️ Owner Safari Schedule & Time Manager</h3>
+            <p style="font-size: 13px; color: #65676b;">Owner can update schedule timings based on weather and park guidelines:</p>
             <table>
                 <tr>
                     <th>Safari Type</th>
-                    <th>Timing Slots</th>
+                    <th>Current Active Timing Slots</th>
                     <th>Status</th>
                 </tr>
                 <tr>
-                    <td>Jeep Safari (Central/Western Range)</td>
-                    <td>Morning: 7:30 AM - 9:30 AM <br>Evening: 1:30 PM - 3:30 PM</td>
-                    <td>Available ✅</td>
+                    <td>Jeep Safari (Morning)</td>
+                    <td>7:30 AM – 9:30 AM</td>
+                    <td><span style="color: green; font-weight: bold;">Active</span></td>
                 </tr>
                 <tr>
-                    <td>Elephant Safari</td>
-                    <td>Early Morning Slots</td>
-                    <td>Available ✅</td>
+                    <td>Jeep Safari (Evening)</td>
+                    <td>1:30 PM – 3:30 PM</td>
+                    <td><span style="color: green; font-weight: bold;">Active</span></td>
                 </tr>
-            </table>
+            </ul>
         </div>
 
-        <!-- Wildlife Highlights -->
-        <div class="card">
-            <h2>Kaziranga Wildlife Highlights</h2>
-            <div class="animals-grid">
-                <div class="animal-card">
-                    <h4>One-Horned Rhino</h4>
-                    <p>World-famous attraction of Assam.</p>
-                </div>
-                <div class="animal-card">
-                    <h4>Royal Bengal Tiger</h4>
-                    <p>The majestic predator.</p>
-                </div>
-                <div class="animal-card">
-                    <h4>Wild Elephants</h4>
-                    <p>Found roaming freely.</p>
-                </div>
-            </div>
+        <!-- Employee Management Section -->
+        <div class="fb-card">
+            <h3>👥 Team & Employee Management</h3>
+            <p style="font-size: 13px; color: #65676b;">Add trusted staff/guides to help manage bookings and media updates:</p>
+            <input type="text" class="post-input" placeholder="Enter Employee/Guide Name" id="empName">
+            <button class="btn" style="background-color: #42b72a;" onclick="addEmployee()">Add Employee / Guide</button>
+            <ul id="empList" style="margin-top: 10px; padding-left: 20px; font-size: 14px;">
+                <li>Rajib Borah (Senior Guide)</li>
+                <li>Bikash Das (Jeep Coordinator)</li>
+            </ul>
         </div>
 
-        <!-- Security / Admin Note -->
-        <div class="admin-box">
-            <p><strong>Security Notice:</strong> Official Admin Account managed by <strong>SOMNATH BORAH</strong> (+91 9101311494). Any major updates or modifications to service parameters strictly require user contact OTP verification.</p>
+        <!-- Security / Admin Notice -->
+        <div class="fb-card" style="background: #fff8e1; border-left: 4px solid #ffc107;">
+            <p style="margin: 0; font-size: 13px;"><strong>Security Verification Notice:</strong> Managed exclusively by <strong>SOMNATH BORAH</strong> (+91 9101311494). Any configuration updates require user contact OTP confirmation.</p>
         </div>
 
     </div>
+
+    <script>
+        function publishPost() {
+            let text = document.getElementById('postText').value;
+            if(!text) {
+                alert('Please write something to post!');
+                return;
+            }
+            let stream = document.getElementById('feedStream');
+            let newPost = document.createElement('div');
+            newPost.className = 'feed-post';
+            newPost.innerHTML = `
+                <div class="feed-author">Somnath Borah / Staff <span class="feed-time">• Just now</span></div>
+                <div class="feed-content">${text}</div>
+                <div class="media-preview">🎬 Photo / Reel Updated</div>
+            `;
+            stream.prepend(newPost);
+            document.getElementById('postText').value = '';
+            document.getElementById('postMedia').value = '';
+        }
+
+        function addEmployee() {
+            let name = document.getElementById('empName').value;
+            if(!name) {
+                alert('Please enter employee name');
+                return;
+            }
+            let list = document.getElementById('empList');
+            let li = document.createElement('li');
+            li.innerText = name + ' (Guide/Staff)';
+            list.appendChild(li);
+            document.getElementById('empName').value = '';
+        }
+    </script>
 
 </body>
 </html>
